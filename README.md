@@ -27,8 +27,6 @@ _A student project meant to improve online shopping experience in this day and a
 
 ## MVP
 
-> The Minimum Viable Product should be a well-planned, easily-communicated product, ensuring that the client's deliverable will be achievable and meet specifications within the time frame estimated.
-
 _The use will be able to see items listed on a screen, capable of adding them to a cart, the user will be able to order items to their respective address. The user will be able to add their own items to the list of items, as well as update and delete these items._
 
 <br>
@@ -44,8 +42,6 @@ _The use will be able to see items listed on a screen, capable of adding them to
 <br>
 
 ### Libraries and Dependencies
-
-> Use this section to list all supporting libraries and dependencies, and their role in the project. Below is an example - this needs to be replaced!
 
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
@@ -94,8 +90,6 @@ src
 
 #### Component Breakdown
 
-> Use this section to go into further depth regarding your components, including breaking down the components as stateless or stateful, and considering the passing of data between those components.
-
 |  Component   |    Type    | state | props | Description                                                      |
 | :----------: | :--------: | :---: | :---: | :--------------------------------------------------------------- |
 |    Header    | functional |   y   |   y   | _The header will contain the navigation to the business section of the app, the cart, and the user update component._               |
@@ -111,8 +105,6 @@ src
 | UpdateItem | functional | y | y | _User can update an item._ |
 
 #### Time Estimates
-
-> Use this section to estimate the time necessary to build out each of the components you've described above.
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
@@ -139,10 +131,10 @@ src
 
 ## Post-MVP
 
-- _User can filter items based on alphabet, price, or category.
-- _User can hold more information credit card or addresses for future purchases.
-- _Users can click on add to cart without going to page.
-- _Users can add to the profiles with images and a series of preselected images will be available to the user.
+- User can filter items based on alphabet, price, or category.
+- User can hold more information credit card or addresses for future purchases.
+- Users can click on add to cart without going to page.
+- Users can add to the profiles with images and a series of preselected images will be available to the user.
 
 ***
 
