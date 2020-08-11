@@ -10,6 +10,7 @@ export default function Main(props) {
   const { setCurrentUser } = props
 
   const [items, setItems] = useState([])
+  const [item, setItem] = useState({})
   
   useEffect(() => {
     getItems()
@@ -18,7 +19,6 @@ export default function Main(props) {
   const getItems = async () => {
     const itemList = await readAllItems()
     setItems(itemList)
-    console.log(itemList)
   }
 
   return (
@@ -36,8 +36,11 @@ export default function Main(props) {
         />
       )} />
 
-      <Route exact path='/item/:id' render={() => (
-        <Item />
+      <Route exact path='/items/:id/categories' render={(props) => (
+        <Item
+          {...props}
+          item={item}
+        />
       )} />
 
     </main>

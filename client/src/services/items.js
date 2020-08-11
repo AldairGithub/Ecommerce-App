@@ -5,8 +5,12 @@ export const readAllItems = async () => {
   return response.data
 }
 
+// export const readOneItem = async (id) => {
+//   const response = await api.get(`/items/${id}`)
+//   return response.data
+// }
+
 export const readOneItem = async (id) => {
-  const response = await api.get(`/items/${id}`)
+  const response = await api.get(`/items/${id}/categories`)
   return response.data
 }
-
