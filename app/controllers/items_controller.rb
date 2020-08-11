@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :update, :destroy]
+  before_action :set_item, only: [:show, :update, :destroy, :item_categories]
+  # before_action :authorize_request, only: [:create, :update, :destroy, :add_category]
 
   # GET /items
   def index
@@ -37,6 +38,21 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
   end
+
+  # PUT /categories/:id/item/:item_id 
+  def add_category
+    @item = Item.find(params[:id])
+    @category = Category.find(params[:category_id])
+
+    @item.categories << @category
+
+    render json: @item, include: :categories
+  end
+  
+  # GET /items/:id/categories
+  def item_categories
+    render json: @item, include: :categories
+  end 
 
   private
     # Use callbacks to share common setup or constraints between actions.
