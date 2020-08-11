@@ -18,11 +18,8 @@ export default function Login(props) {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const userData = await loginUser(newUserData)
-    if (userData) {
-      console.log(userData)
-    }
     props.setCurrentUser(userData)
-    // props.history.push('/')
+    props.history.push('/home')
   }
 
   return (
