@@ -3,13 +3,15 @@ import { Route } from 'react-router-dom'
 import { readAllItems } from '../services/items'
 import { readAllUsers } from '../services/users'
 
-import Login from './Login'
-import Register from './Register'
-import UpdateUser from './UpdateUser'
-import Home from './Home'
-import Item from './Item'
+import Login from './SignIn/SignIn'
+import Register from './SignUp/SignUp'
+import UpdateUser from './User/UpdateUser'
+import Home from './Home/Home'
+import Item from './Item/Item'
+import UserItems from './UserItems'
 
 export default function Main(props) {
+  const { currentUser } = props
   const { setCurrentUser } = props
 
   const [items, setItems] = useState([])
@@ -72,6 +74,12 @@ export default function Main(props) {
         />
       )} />
 
+      <Route exact path='/users/:id/items' render={(props) => (
+        <UserItems
+          {...props}
+          currentUser={currentUser}
+        />
+      )} />
     </main>
   )
 }

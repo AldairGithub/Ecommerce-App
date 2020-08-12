@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css'
-import Header from './components/Header'
+import Header from './components/Header/Header'
 import Main from './components/Main'
 import { verifyUser } from './services/auth'
 
@@ -28,6 +28,7 @@ export default function App() {
         setCurrentUser={setCurrentUser}
       />
       <Main
+        currentUser={currentUser}
         setCurrentUser={setCurrentUser}
       />
     </div>

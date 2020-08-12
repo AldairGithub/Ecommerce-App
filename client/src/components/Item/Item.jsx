@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { readOneItem } from '../../services/items'
 
 import ItemData from './ItemData'
-
-import { readOneItem } from '../services/items'
-
 
 export default function Item(props) {
   let [item, setItem] = useState({})

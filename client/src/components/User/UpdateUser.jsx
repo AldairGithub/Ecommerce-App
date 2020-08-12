@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { updateUser } from '../services/users'
+import { updateUser } from '../../services/users'
 
 export default function UpdateUser(props) {
   const [userData, setUserData] = useState({
@@ -70,6 +70,13 @@ export default function UpdateUser(props) {
         value={userData.address}
         onChange={handleChange}
         placeholder='Address'
+      />
+      <input
+        type='text'
+        name='password'
+        value={userData.password}
+        onChange={handleChange}
+        placeholder='Password'
       />
       <label>Type password to update account</label>
       <input

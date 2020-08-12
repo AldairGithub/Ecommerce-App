@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { removeToken } from '../services/auth'
+import { removeToken } from '../../services/auth'
 import { useHistory } from 'react-router-dom'
 
 export default function Header(props) {
@@ -21,6 +21,7 @@ export default function Header(props) {
           <>
             <p>{props.currentUser.username} logged in</p>
             <Link to={`/users/${props.currentUser.id}`}>Update User</Link>
+            <Link to={`/users/${props.currentUser.id}/items`}>User Items</Link>
             <button onClick={handleLogout}>Logout</button>
           </>
         ) : (
