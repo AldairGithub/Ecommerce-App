@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { userItems } from '../services/users'
 
 import UserItemsCategories from './UserItemsCategories'
-import ItemData from './Item/ItemData'
 
 export default function UserItems(props) {
   
@@ -20,14 +20,16 @@ export default function UserItems(props) {
 
   return (
     <>
-      <h1>This is where user items are displayed</h1>
+      <h1>My Business</h1>
+      <div>
+        <Link to={`/users/${props.match.params.id}/new`}>new item</Link>
+      </div>
       {userItemsData.map((item, index) => (
         <>
           <img style={{ height: 100, width: 100 }} src={item.img_url} />
           <p key={index}>{item.name}</p>
           <p>{item.price}</p>
           <UserItemsCategories id={item.id}/>
-          {/* <ItemData item={item} /> */}
         </>
       ))}
     </>
