@@ -1,14 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { updateUser } from '../services/users'
 
 export default function UpdateUser(props) {
-  console.log(props)
   const [userData, setUserData] = useState({
     username: "",
     password: "",
     email: "",
     address: ""
   })
+
+  useEffect(() => {
+    defaultUserData()
+  }, [props.users])
+  
+  const defaultUserData = () => {
+    const userExist = props.users.find((user) => {
+      return user.id === parseInt(props.match.params.id)
+    })
+    if (userExist) {
+      setUserData({
+        username: userExist.username,
+        password: userExist.password,
+        email: userExist.email,
+        address: userExist.address
+      })
+    }
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -20,10 +37,18 @@ export default function UpdateUser(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    const { id } = props.match.params
+    const newUser = await updateUser(id, userData)
+    props.setUsers(
+      props.users.map((user) => {
+        return user.id === parseInt(id) ? newUser : user
+      })
+    )
+    console.log('user updated')
   }
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <h3>UPDATE ACCOUNT</h3>
       <input
         type='text'
@@ -31,13 +56,6 @@ export default function UpdateUser(props) {
         value={userData.username}
         onChange={handleChange}
         placeholder='Username'
-      />
-      <input
-        type='password'
-        name='password'
-        value={userData.password}
-        onChange={handleChange}
-        placeholder='Password'
       />
       <input
         type='text'
@@ -52,6 +70,14 @@ export default function UpdateUser(props) {
         value={userData.address}
         onChange={handleChange}
         placeholder='Address'
+      />
+      <label>Type password to update account</label>
+      <input
+        type='password'
+        name='password'
+        value={userData.password}
+        onChange={handleChange}
+        placeholder='Password'
       />
       <button>Submit</button>
     </form>
