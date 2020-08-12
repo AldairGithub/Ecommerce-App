@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/AldairGithub/Ecommerce-App/issues"
   },
-  "homepage": "https://github.com/AldairGithub/Ecommerce-App#readme"
+  "homepage": "https://github.com/AldairGithub/Ecommerce-App#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "react-router-dom": "^5.2.0"
+  }
 }

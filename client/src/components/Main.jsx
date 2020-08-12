@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import { readAllItems } from '../services/items'
 
 import Login from './Login'
+import Register from './Register'
 import Home from './Home'
 import Item from './Item'
 
@@ -29,6 +30,16 @@ export default function Main(props) {
           setCurrentUser={setCurrentUser}
         />
       )} />
+
+      <Route exact path='/register' render={(props) => (
+        <Register
+          {...props}
+          setCurrentUser={setCurrentUser}
+        />
+      )}
+      />
+
+      
 
       <Route exact path='/home' render={() => (
         <Home
