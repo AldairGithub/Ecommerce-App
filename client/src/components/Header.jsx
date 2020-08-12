@@ -5,13 +5,13 @@ export default function Header(props) {
   return (
     <header>
         <h1>My Ecommerce App</h1>
-        {
+        {/* {
           props.currentUser ? (
           <>
             <Link><p>{props.currentUser.username}</p></Link>
           </>
           )
-        }
+        } */}
     </header>
   )
 }
