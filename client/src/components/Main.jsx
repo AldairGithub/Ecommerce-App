@@ -9,6 +9,7 @@ import UpdateUser from './User/UpdateUser'
 import Home from './Home/Home'
 import Item from './Item/Item'
 import UserItems from './UserItems'
+import CreateItem from './CreateItem'
 
 export default function Main(props) {
   const { currentUser } = props
@@ -78,6 +79,14 @@ export default function Main(props) {
         <UserItems
           {...props}
           currentUser={currentUser}
+        />
+      )} />
+
+      <Route exact path='/users/:id/new' render={(props) => (
+        <CreateItem
+          {...props}
+          items={items}
+          setItems={setItems}
         />
       )} />
     </main>
