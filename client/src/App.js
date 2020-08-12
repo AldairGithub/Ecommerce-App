@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css'
-import Header from './components/Header'
+import Header from './components/Header/Header'
 import Main from './components/Main'
 import { verifyUser } from './services/auth'
 
@@ -13,13 +13,22 @@ export default function App() {
 
   const handleVerify = async () => {
     const userData = await verifyUser()
+    if (userData) {
+      console.log('User logged in')
+    } else {
+      console.log('User not logged')
+    }
     setCurrentUser(userData)
   }
 
   return (
     <div className='App'>
-      <Header />
+      <Header
+        currentUser={currentUser}
+        setCurrentUser={setCurrentUser}
+      />
       <Main
+        currentUser={currentUser}
         setCurrentUser={setCurrentUser}
       />
     </div>
