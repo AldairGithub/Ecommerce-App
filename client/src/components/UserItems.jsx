@@ -4,6 +4,7 @@ import { userItems } from '../services/users'
 
 import DisplayCategory from './DisplayCategory'
 import AddCategory from './AddCategory'
+import DeleteItem from './DeleteItem'
 
 export default function UserItems(props) {
   const [userItemsData, setUserItemsData] = useState([])
@@ -31,6 +32,13 @@ export default function UserItems(props) {
           <DisplayCategory id={item.id} />
           <AddCategory item={item} categories={props.categories} />
           <Link to={`/users/${props.match.params.id}/item/${item.id}/edit`}>Update Item</Link>
+          <DeleteItem
+            userId={props.match.params.id}
+            itemId={item.id}
+            items={props.items}
+            setItems={props.setItems}
+            history={props.history}
+          />
         </div>
       ))}
     </>
