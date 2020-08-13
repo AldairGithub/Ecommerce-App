@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Route } from 'react-router-dom'
 import { readAllItems } from '../services/items'
 import { readAllUsers } from '../services/users'
+import { readAllCategories } from '../services/categories'
 
 import Login from './SignIn/SignIn'
 import Register from './SignUp/SignUp'
@@ -19,10 +20,13 @@ export default function Main(props) {
   const [item, setItem] = useState({})
 
   const [users, setUsers] = useState([])
+
+  const [categories, setCategories] = useState([])
   
   useEffect(() => {
     getItems()
     getUsers()
+    getCategories()
   }, [])
 
   const getItems = async () => {
@@ -33,6 +37,11 @@ export default function Main(props) {
   const getUsers = async () => {
     const userList = await readAllUsers()
     setUsers(userList)
+  }
+
+  const getCategories = async () => {
+    const categoryList = await readAllCategories()
+    setCategories(categoryList)
   }
 
   return (
@@ -79,6 +88,7 @@ export default function Main(props) {
         <UserItems
           {...props}
           currentUser={currentUser}
+          categories={categories}
         />
       )} />
 
