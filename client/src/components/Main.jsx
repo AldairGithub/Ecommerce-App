@@ -89,6 +89,8 @@ export default function Main(props) {
         <UserItems
           {...props}
           currentUser={currentUser}
+          items={items}
+          setItems={setItems}
           categories={categories}
         />
       )} />
