@@ -11,6 +11,7 @@ import Home from './Home/Home'
 import Item from './Item/Item'
 import UserItems from './UserItems'
 import CreateItem from './CreateItem'
+import UpdateItem from './UpdateItem'
 
 export default function Main(props) {
   const { currentUser } = props
@@ -94,6 +95,14 @@ export default function Main(props) {
 
       <Route exact path='/users/:id/new' render={(props) => (
         <CreateItem
+          {...props}
+          items={items}
+          setItems={setItems}
+        />
+      )} />
+
+      <Route exact path='/users/:userId/item/:id/edit' render={(props) => (
+        <UpdateItem
           {...props}
           items={items}
           setItems={setItems}

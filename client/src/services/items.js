@@ -15,6 +15,11 @@ export const postItem = async (itemData) => {
   return response.data
 }
 
+export const putItem = async (id, itemData) => {
+  const response = await api.put(`/items/${id}`, { item: itemData })
+  return response.data
+}
+
 export const addCategory = async (categoryId, itemId) => {
   const response = await api.put(`/categories/${categoryId}/item/${itemId}`)
   return response.data
