@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :categories, only: :index
-  resources :items, only: :index
+  resources :items
   resources :users
   get '/items/:id/categories', to: 'items#item_categories'
   post '/auth/login', to: 'authentication#login'
