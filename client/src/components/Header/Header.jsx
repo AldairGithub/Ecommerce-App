@@ -22,6 +22,7 @@ export default function Header(props) {
             <p>{props.currentUser.username} logged in</p>
             <Link to={`/users/${props.currentUser.id}`}>Update User</Link>
             <Link to={`/users/${props.currentUser.id}/items`}>User Items</Link>
+            <Link to={`/users/${props.currentUser.id}/cart`}>Cart</Link>
             <button onClick={handleLogout}>Logout</button>
           </>
         ) : (
