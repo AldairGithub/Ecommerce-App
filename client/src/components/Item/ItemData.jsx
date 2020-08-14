@@ -2,6 +2,13 @@ import React from 'react'
 
 export default function ItemData(props) {
 
+  const handleClick = (item) => {
+    // adds items to an array for Cart
+    props.setCart(prevArray => [
+      ...prevArray,
+      item
+    ])
+  }
   return (
     <>
       <p>{props.item.name}</p>
@@ -11,6 +18,7 @@ export default function ItemData(props) {
         </>
       ))}
       <p>{props.item.price}</p>
+      <button onClick={() => handleClick(props.item)}>Add to Cart</button>
     </>
   )
 }

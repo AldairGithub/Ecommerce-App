@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { userItems } from '../services/users'
 
-import DisplayCategory from './DisplayCategory'
-import AddCategory from './AddCategory'
-import DeleteItem from './DeleteItem'
+import DisplayCategory from './Category/DisplayCategory'
+import AddCategory from './Category/AddCategory'
+import DeleteItem from './DeleteItem/DeleteItem'
 
 export default function UserItems(props) {
   const [userItemsData, setUserItemsData] = useState([])

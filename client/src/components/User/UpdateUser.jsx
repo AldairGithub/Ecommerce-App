@@ -44,7 +44,7 @@ export default function UpdateUser(props) {
         return user.id === parseInt(id) ? newUser : user
       })
     )
-    console.log('user updated')
+    props.history.push('/home')
   }
 
   return (

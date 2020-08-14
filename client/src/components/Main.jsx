@@ -10,8 +10,9 @@ import UpdateUser from './User/UpdateUser'
 import Home from './Home/Home'
 import Item from './Item/Item'
 import UserItems from './UserItems'
-import CreateItem from './CreateItem'
-import UpdateItem from './UpdateItem'
+import CreateItem from './CreateItem/CreateItem'
+import UpdateItem from './UpdateItem/UpdateItem'
+import Cart from './Cart'
 
 export default function Main(props) {
   const { currentUser } = props
@@ -23,6 +24,8 @@ export default function Main(props) {
   const [users, setUsers] = useState([])
 
   const [categories, setCategories] = useState([])
+
+  const [cart, setCart] = useState([])
   
   useEffect(() => {
     getItems()
@@ -59,8 +62,7 @@ export default function Main(props) {
           {...props}
           setCurrentUser={setCurrentUser}
         />
-      )}
-      />
+      )} />
 
       <Route exact path='/users/:id' render={(props) => (
         <UpdateUser
@@ -68,9 +70,7 @@ export default function Main(props) {
           users={users}
           setUsers={setUsers}
         />
-      )}
-      
-      />
+      )} />
 
       <Route exact path='/home' render={() => (
         <Home
@@ -82,6 +82,8 @@ export default function Main(props) {
         <Item
           {...props}
           item={item}
+          cart={cart}
+          setCart={setCart}
         />
       )} />
 
@@ -108,6 +110,14 @@ export default function Main(props) {
           {...props}
           items={items}
           setItems={setItems}
+        />
+      )} />
+
+      <Route exact path='/users/:id/cart' render={(props) => (
+        <Cart
+          {...props}
+          cart={cart}
+          setCart={setCart}
         />
       )} />
     </main>
