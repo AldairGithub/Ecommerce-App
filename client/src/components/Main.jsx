@@ -116,6 +116,8 @@ export default function Main(props) {
       <Route exact path='/users/:id/cart' render={(props) => (
         <Cart
           {...props}
+          cart={cart}
+          setCart={setCart}
         />
       )} />
     </main>
