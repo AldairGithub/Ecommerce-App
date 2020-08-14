@@ -5,8 +5,8 @@ export default function Home(props) {
   return (
     <div>
       <p>This is the home component</p>
-      {props.items.map((item) => (
-        <div>
+      {props.items.map((item, index) => (
+        <div  key={index}>
           <Link to={{
             pathname: `/items/${item.id}/categories`,
             state: {item}

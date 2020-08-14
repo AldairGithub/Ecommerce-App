@@ -16,9 +16,9 @@ export default function UserItemCategories(props) {
   return (
     <>
       {categories.map((category, index) => (
-        <>
-          <p key={index}>{category.name}</p>
-        </>
+        <div key={index}>
+          <p>{category.name}</p>
+        </div>
       ))}
     </>
   )

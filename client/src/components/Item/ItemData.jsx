@@ -13,9 +13,9 @@ export default function ItemData(props) {
     <>
       <p>{props.item.name}</p>
       {props.item.categories && props.item.categories.map((str, index) => (
-        <>
-          <p key={index}>{str.name}</p>
-        </>
+        <div key={index}>
+          <p>{str.name}</p>
+        </div>
       ))}
       <p>{props.item.price}</p>
       <button onClick={() => handleClick(props.item)}>Add to Cart</button>
