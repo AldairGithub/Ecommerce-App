@@ -1,16 +1,50 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import CartItem from './CartItem'
+import { Link } from 'react-router-dom'
 
 export default function Cart(props) {
+  let { cart } = props
+  let { setCart } = props
+  let { total } = props
+  let { setTotal } = props
+  
+  useEffect(() => {
+    allTotal()
+  })
+
+  const allTotal = () => {
+    let subTotal = cart
+      .filter(item => item.quantity > 0)
+      .map(item => item.price * item.quantity)
+      .reduce((prev, curr) => prev + curr, 0)
+    setTotal(subTotal)
+  }
+
+  const updateQuantity = (quantity, index) => {
+    let oldItems = cart.slice()
+    let item = oldItems[index]
+    item.quantity = item.quantity + quantity < 1 ? 1 : item.quantity + quantity
+    setCart([
+      ...oldItems
+    ], allTotal())
+  }
+
+  const removeItem = (id) => {
+    let oldItems = cart.slice()
+    let filteredItems = oldItems.filter((item) => item.id !== id)
+    setCart([
+      ...filteredItems
+    ], allTotal())
+
+  }
+
   return (
     <div>
-      <p>This is the Cart component</p>
-      {props.cart.map((item, index) => (
-        <div key={index}>
-          <img style={{ height: 100, width: 100 }} src={item.img_url} />
-          <p key={index}>{item.name}</p>
-          <p>{item.price}</p>
-        </div>
+      {cart.map((item, index) => (
+        <CartItem item={item} index={index} updateQuantity={updateQuantity} removeItem={removeItem}/>
       ))}
+      <h1>Price: {total}</h1>
+      <Link to={`/users/${cart.length != 0 ? `${props.match.params.id}/checkout` : `${props.match.params.id}/cart`}`}>Checkout</Link>
     </div>
   )
 }

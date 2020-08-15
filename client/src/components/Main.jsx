@@ -13,6 +13,7 @@ import UserItems from './UserItems'
 import CreateItem from './CreateItem/CreateItem'
 import UpdateItem from './UpdateItem/UpdateItem'
 import Cart from './Cart'
+import Checkout from './Checkout'
 
 export default function Main(props) {
   const { currentUser } = props
@@ -26,6 +27,9 @@ export default function Main(props) {
   const [categories, setCategories] = useState([])
 
   const [cart, setCart] = useState([])
+
+  const [total, setTotal] = useState(0)
+
   
   useEffect(() => {
     getItems()
@@ -118,8 +122,18 @@ export default function Main(props) {
           {...props}
           cart={cart}
           setCart={setCart}
+          total={total}
+          setTotal={setTotal}
         />
       )} />
+
+      <Route exact path='/users/:id/checkout' render={(props) => (
+        <Checkout
+          {...props}
+          total={total}
+        />
+      )} />
+
     </main>
   )
 }
