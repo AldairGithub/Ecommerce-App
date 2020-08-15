@@ -14,6 +14,7 @@ import CreateItem from './CreateItem/CreateItem'
 import UpdateItem from './UpdateItem/UpdateItem'
 import Cart from './Cart'
 import Checkout from './Checkout'
+import OrderOut from './OrderOut'
 
 export default function Main(props) {
   const { currentUser } = props
@@ -131,6 +132,13 @@ export default function Main(props) {
         <Checkout
           {...props}
           total={total}
+          currentUser={currentUser.address}
+        />
+      )} />
+
+      <Route exact path='/users/:id/orderout' render={(props) => (
+        <OrderOut
+          setCart={setCart}
         />
       )} />
 

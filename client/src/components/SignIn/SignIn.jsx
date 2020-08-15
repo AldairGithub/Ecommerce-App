@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './SignIn.css'
 import { Link } from 'react-router-dom'
 import { loginUser } from '../../services/auth'
 
@@ -24,7 +25,7 @@ export default function Login(props) {
   }
 
   return (
-    <>
+    <div className='button sign-in-input'>
     <form onSubmit={handleSubmit}>
       <input
         placeholder="Username"
@@ -40,10 +41,12 @@ export default function Login(props) {
         value={setNewUserData.password}
         onChange={handleChange}
       />
-      <button>Submit</button>
+      <button>Sign In</button>
       </form>
       <p>Don't have an account?</p>
-      <Link to='/register'>Sign Up</Link>
-    </>
+      <div className='button sign-up-button'>
+        <Link to='/register'><button>Sign Up</button></Link>
+      </div>
+    </div>
   )
 }
