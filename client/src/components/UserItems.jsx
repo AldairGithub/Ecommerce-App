@@ -20,12 +20,12 @@ export default function UserItems(props) {
 
   return (
     <>
-      <h1>My Business</h1>
+      <h2>My Business</h2>
       <div>
         <Link to={`/users/${props.match.params.id}/new`}>new item</Link>
       </div>
       {userItemsData.map((item, index) => (
-        <div key={index}>
+        <div className='user-item-container' key={index}>
           <img style={{ height: 100, width: 100 }} src={item.img_url} />
           <p>{item.name}</p>
           <p>{item.price}</p>
