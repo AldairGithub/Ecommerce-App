@@ -9,7 +9,7 @@ import Register from './SignUp/SignUp'
 import UpdateUser from './User/UpdateUser'
 import Home from './Home/Home'
 import Item from './Item/Item'
-import UserItems from './UserItems'
+import UserItems from './UserItems/UserItems'
 import CreateItem from './CreateItem/CreateItem'
 import UpdateItem from './UpdateItem/UpdateItem'
 import Cart from './Cart'
@@ -105,6 +105,7 @@ export default function Main(props) {
       <Route exact path='/users/:id/new' render={(props) => (
         <CreateItem
           {...props}
+          currentUser={currentUser}
           items={items}
           setItems={setItems}
         />
