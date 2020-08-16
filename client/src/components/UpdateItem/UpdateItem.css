@@ -1,4 +1,4 @@
-.create-item-container form {
+.update-item-container form {
   margin-top: 40px;
 	display: flex;
 	flex-direction: column;
@@ -8,12 +8,12 @@
   align-content: stretch;
 }
 
-.create-item-container input {
+.update-item-container input {
   height: 20px;
   width: 250px;
   margin-top: 10px;
 }
-.create-item-container button {
+.update-item-container button {
   margin-top: 40px;
   height: 30px;
   width: 100px;
@@ -23,7 +23,7 @@
   cursor: pointer;
   transition-duration: 0.4s;
 }
-.create-item-container button:hover {
+.update-item-container button:hover {
   background-color: white;
   color: rgb(45, 136, 217);
 }

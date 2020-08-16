@@ -22,7 +22,6 @@ export default function UserItems(props) {
   return (
     <>
       <h2>My Business</h2>
-      <h3>Hello {props.currentUser.username}, what would you like to do today?</h3>
       <div className='new-item-button'>
         <Link to={`/users/${props.match.params.id}/new`}><button>New Item</button></Link>
       </div>

@@ -29,11 +29,12 @@ export default function CreateItem(props) {
 
 
   return (
-    <div className='create-item-container'>
+    <>
       <div>
-      <h2>My Business</h2>
-      <h3>Hello {props.currentUser.username}, what would you like to create today?</h3>
+        <h2>My Business</h2>
       </div>
+      <h3>Create Item</h3>
+      <div className='create-item-container'>
     <form onSubmit={handleSubmit}>
       <input
         type='text'
@@ -58,6 +59,7 @@ export default function CreateItem(props) {
       />
       <button>Submit</button>
       </form>
-    </div>
+      </div>
+    </>
   )
 }
