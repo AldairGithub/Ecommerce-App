@@ -48,6 +48,7 @@ export default function UpdateUser(props) {
   }
 
   return (
+    <div className='update-container'>
     <form onSubmit={handleSubmit}>
       <h3>UPDATE ACCOUNT</h3>
       <input
@@ -87,6 +88,7 @@ export default function UpdateUser(props) {
         placeholder='Password'
       />
       <button>Submit</button>
-    </form>
+      </form>
+    </div>
   )
 }

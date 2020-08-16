@@ -1,0 +1,21 @@
+.item-data-container {
+  height: 300px;
+  margin-top: 40px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.item-data-container img{
+  height: 300px;
+  width: 100;
+}
+.item-data-container p {
+  margin-left: 40px;
+}
+.button-cart {
+  margin-left: 40px;
+}

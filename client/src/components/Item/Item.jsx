@@ -17,7 +17,6 @@ export default function Item(props) {
 
   return (
     <>
-      <p>This is the item component</p>
       <ItemData item={item} cart={props.cart} setCart={props.setCart}/>
     </>
   )

@@ -1,16 +1,16 @@
 import React from 'react'
+import './Home.css'
 import { Link } from 'react-router-dom'
 
 export default function Home(props) {
   return (
-    <div>
-      <p>This is the home component</p>
+    <div className='home-container'>
       {props.items.map((item, index) => (
-        <div  key={index}>
+        <div className='item-container' key={index} >
           <Link to={`/items/${item.id}/categories`}>
-            <img style={{ height: 100, width: 100 }} src={item.img_url} />
-            <h2>{item.name}</h2>
-            <p>{item.price}$</p>
+            <img src={item.img_url} />
+            <p>{item.name}</p>
+            <h1>{item.price}$</h1>
           </Link>
         </div>
       ))}

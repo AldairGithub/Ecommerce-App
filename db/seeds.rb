@@ -46,5 +46,5 @@ puts "#{Category.count} categories created"
 @dices.categories.push(@entertainment)
 
 @wave_poster.categories.push(@nature, @decoration)
-@ibanez.categories.push(@music, @style, @entertainment)
+@ibanez.categories.push(@music, @entertainment)
 @wrist_watch.categories.push(@outwear)

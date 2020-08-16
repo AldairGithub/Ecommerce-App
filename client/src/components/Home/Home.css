@@ -1,0 +1,24 @@
+.home-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: flex-start;
+  align-content: space-between;
+}
+
+.home-container img {
+  height: 130px;
+  width: 100;
+  margin-top: 30px;
+}
+
+.item-container {
+  margin-top: 40px;
+  width: 400px;
+  border: 1px solid black;
+}
+
+.item-container a {
+  color: black;
+}
