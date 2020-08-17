@@ -44,4 +44,17 @@
   background-color: white;
   color: rgb(45, 136, 217);
 }
-
+@media only screen and (max-width: 375px) {
+  .credit-card {
+    margin-top: 0px;
+    margin-bottom: 50px;
+  }
+  .credit-data{
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .credit-data input{
+    width: 60%;
+    margin-top: 10px;
+  }
+}

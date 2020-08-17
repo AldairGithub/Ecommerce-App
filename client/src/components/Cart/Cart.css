@@ -21,3 +21,20 @@
   top: 35%;
   right: 25%;
 }
+@media only screen and (max-width: 375px) {
+  .cart-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .total-container {
+    position: static;
+    text-align: left;
+    margin-left: 10px;
+  }
+  .total-container button {
+    width: 355px;
+  }
+}

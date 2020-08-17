@@ -18,3 +18,11 @@
   color: rgb(45, 136, 217);
 }
 
+@media only screen and (max-width: 375px) {
+  .title {
+    margin-top: 0px;
+  }
+  .go-shopping-button{
+    width: 150px;
+  }
+}

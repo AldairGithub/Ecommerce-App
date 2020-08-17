@@ -24,6 +24,9 @@
 }
 
 @media only screen and (max-width: 375px) {
+  .home-container{
+    margin-top: -40px;
+  }
   .home-container img{
     height: 120px;
     width: 150px;
@@ -32,7 +35,7 @@
   .item-container {
     width: 350px;
     border: transparent;
-    margin-top: 30px;
+    margin-top: 20px;
   }
   .item-container p{
     margin-top: 50px;
