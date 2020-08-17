@@ -22,3 +22,22 @@
 .item-container a {
   color: black;
 }
+
+@media only screen and (max-width: 375px) {
+  .home-container img{
+    height: 120px;
+    width: 150px;
+    float: left;
+  }
+  .item-container {
+    width: 350px;
+    border: transparent;
+    margin-top: 30px;
+  }
+  .item-container p{
+    margin-top: 50px;
+  }
+  .item-container h1{
+    font-size: 20px;
+  }
+}

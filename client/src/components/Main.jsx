@@ -14,7 +14,7 @@ import CreateItem from './CreateItem/CreateItem'
 import UpdateItem from './UpdateItem/UpdateItem'
 import Cart from './Cart/Cart'
 import Checkout from './Checkout/Checkout'
-import OrderOut from './OrderOut'
+import OrderOut from './OrderOut/OrderOut'
 
 export default function Main(props) {
   const { currentUser } = props
@@ -133,8 +133,7 @@ export default function Main(props) {
         <Checkout
           {...props}
           total={total}
-          // currentUserAddress={currentUser.address}
-          currentUserAddress={'1234 aswrewdf'}
+          currentUserAddress={currentUser.address}
         />
       )} />
 

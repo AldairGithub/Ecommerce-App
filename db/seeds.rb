@@ -20,7 +20,7 @@ puts "#{User.count} users created"
 
 @accoustic_guitar = Item.create(name: 'Accoustic Guitar', price: 100, img_url: 'https://i.imgur.com/qilptGI.jpg', quantity: 1, user: @user)
 @egg_decorations = Item.create(name: 'Egg Decorations', price: 10, img_url: 'https://i.imgur.com/TQw5NJl.jpg', quantity: 1, user: @user)
-@dices = Item.create(name: 'Dices', price: 1, img_url: 'https://i.imgur.com/ywoFPVE.jpg' , quantity: 1, user: @user)
+@dices = Item.create(name: 'Dice', price: 1, img_url: 'https://i.imgur.com/ywoFPVE.jpg' , quantity: 1, user: @user)
 
 @wave_poster = Item.create(name: 'Wave Poster', price: 10, img_url: 'https://i.imgur.com/XhE2N3q.jpg', quantity: 1, user: @moser)
 @ibanez = Item.create(name: 'Ibanez SA360QM', price: 400, img_url: 'https://i.imgur.com/WeN545k.jpg', quantity: 1, user: @moser)

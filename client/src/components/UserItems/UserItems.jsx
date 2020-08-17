@@ -32,7 +32,7 @@ export default function UserItems(props) {
           <p>{item.price}</p>
           <DisplayCategory id={item.id} />
           <AddCategory item={item} categories={props.categories} />
-          <Link to={`/users/${props.match.params.id}/item/${item.id}/edit`}><button className='update-button'>Update Item</button></Link>
+          <Link to={`/users/${props.match.params.id}/item/${item.id}/edit`}><button className='user-button'>Update Item</button></Link>
           <DeleteItem
             userId={props.match.params.id}
             itemId={item.id}

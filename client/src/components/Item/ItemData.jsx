@@ -13,13 +13,13 @@ export default function ItemData(props) {
   return (
     <div className='item-data-container'>
       <img src={props.item.img_url} />
-      <p>{props.item.name}</p>
+      <h3>{props.item.name}</h3>
       {props.item.categories && props.item.categories.map((str, index) => (
         <div key={index}>
-          <p>{str.name}</p>
+          <h4>{str.name}</h4>
         </div>
       ))}
-      <p>{props.item.price}</p>
+      <h1>${props.item.price}</h1>
       <div className='button button-cart'>
         <button onClick={() => handleClick(props.item)}>Add to Cart</button>
       </div>

@@ -1,6 +1,7 @@
 .item-data-container {
   height: 300px;
   margin-top: 40px;
+  margin-left: 20%;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
@@ -13,9 +14,28 @@
   height: 300px;
   width: 100;
 }
+.item-data-container h3, h4{
+  margin-bottom: -12px;
+}
 .item-data-container p {
-  margin-left: 40px;
+
 }
 .button-cart {
   margin-left: 40px;
+}
+
+@media only screen and (max-width: 375px) {
+  .item-data-container {
+    margin-top: 100px;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+  .item-data-container img {
+    height: 135px;
+    width: 100;
+  }
+  .button-cart {
+    margin-left: 0px;
+  }
 }

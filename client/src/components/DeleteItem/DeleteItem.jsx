@@ -1,4 +1,5 @@
 import React from 'react'
+import './DeleteItem.css'
 import { destroyItem } from '../../services/items'
 
 export default function DeleteItem(props) {
@@ -13,7 +14,7 @@ export default function DeleteItem(props) {
 
   return (
     <>
-      <button onClick={() => handleClick(props.itemId)}>Delete</button>
+      <button className='delete-button' onClick={() => handleClick(props.itemId)}>Delete Item</button>
     </>
   )
 }
