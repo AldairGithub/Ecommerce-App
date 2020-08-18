@@ -25,7 +25,13 @@
 .notHome {
   margin-top: 50px;
 }
+@media only screen and (max-width: 768px) {
+  .user-nav{
+    margin: 0;
+    justify-content: center;
+  }
 
+}
 @media only screen and (max-width: 375px) {
   .header {
     display: flex;

@@ -21,6 +21,10 @@
   top: 35%;
   right: 25%;
 }
+
+@media only screen and (max-width: 768px) {
+  
+}
 @media only screen and (max-width: 375px) {
   .cart-container {
     display: flex;
