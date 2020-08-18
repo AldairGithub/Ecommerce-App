@@ -1,4 +1,5 @@
 import React from 'react'
+import './Header.css'
 import { Link } from 'react-router-dom'
 import { removeToken } from '../../services/auth'
 import { useHistory } from 'react-router-dom'
@@ -15,22 +16,31 @@ export default function Header(props) {
 
   return (
     <header>
-      <Link to='/home'><h1>My Ecommerce App</h1></Link>
       {
-        props.currentUser ? (
-          <>
-            <p>{props.currentUser.username} logged in</p>
-            <Link to={`/users/${props.currentUser.id}`}>Update User</Link>
-            <Link to={`/users/${props.currentUser.id}/items`}>User Items</Link>
-            <button onClick={handleLogout}>Logout</button>
-          </>
+        props.currentUser !== null ? (
+          <div className='header'>
+            <div className='user-nav button'>
+              <Link to={`/users/${props.currentUser.id}`}><button>Update User</button></Link>
+              <Link to={`/users/${props.currentUser.id}/items`}><button>User Items</button></Link>
+              <Link to={`/users/${props.currentUser.id}/cart`}><button>Cart</button></Link>
+              <button onClick={handleLogout}>Logout</button>
+            </div>
+            <div className='home'>
+              <Link to='/home'><h1>My Ecommerce App</h1></Link>
+            </div>
+        </div>
         ) : (
-            <>
-              <Link to='/'>Sign In</Link>
-              <Link to='/register'>Sign Up</Link>
-            </>
+        <div className='header'>
+          <div className='user-nav button'>
+            <Link to={`/register`}><button>Sign Up</button></Link>
+            <Link to={`/`}><button>Sign In</button></Link>
+              </div>
+          <div className='notHome'>
+            <Link className='notHome' to='/home'><h1>My Ecommerce App</h1></Link>
+          </div>
+        </div>
         )
-      }
+      }  
     </header>
   )
 }

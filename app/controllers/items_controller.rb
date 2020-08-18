@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :update, :destroy, :item_categories]
-  # before_action :authorize_request, only: [:create, :update, :destroy, :add_category]
+  before_action :authorize_request, only: [:create, :update, :destroy, :add_category]
 
   # GET /items
   def index
@@ -17,6 +17,7 @@ class ItemsController < ApplicationController
   # POST /items
   def create
     @item = Item.new(item_params)
+    @item.user = @current_user
 
     if @item.save
       render json: @item, status: :created, location: @item
