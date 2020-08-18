@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import './Cart.css'
 import CartItem from './CartItem'
 import { Link } from 'react-router-dom'
@@ -46,7 +46,7 @@ export default function Cart(props) {
       ))}
       <div className='total-container'>
         <h1>Total: ${total}</h1>
-        <Link to={`/users/${cart.length != 0 ? `${props.match.params.id}/checkout` : `${props.match.params.id}/cart`}`}><button className='cart-button'>Checkout</button></Link>
+        <Link to={`/users/${cart.length !== 0 ? `${props.match.params.id}/checkout` : `${props.match.params.id}/cart`}`}><button className='cart-button'>Checkout</button></Link>
       </div>
     </div>
   )

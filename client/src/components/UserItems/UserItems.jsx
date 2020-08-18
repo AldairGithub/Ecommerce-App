@@ -11,6 +11,7 @@ export default function UserItems(props) {
   const [userItemsData, setUserItemsData] = useState([])
   useEffect(() => {
     getUserItems()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const getUserItems = async () => {
@@ -27,7 +28,7 @@ export default function UserItems(props) {
       </div>
       {userItemsData.map((item, index) => (
         <div className='user-item-container' key={index}>
-          <img src={item.img_url} />
+          <img src={item.img_url} alt={item.name}/>
           <p>{item.name}</p>
           <p>{item.price}</p>
           <DisplayCategory id={item.id} />

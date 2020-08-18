@@ -21,7 +21,7 @@ export default function Main(props) {
   const { setCurrentUser } = props
 
   const [items, setItems] = useState([])
-  const [item, setItem] = useState({})
+  const [item] = useState({})
 
   const [users, setUsers] = useState([])
 
@@ -77,8 +77,9 @@ export default function Main(props) {
         />
       )} />
 
-      <Route exact path='/home' render={() => (
+      <Route exact path='/home' render={(props) => (
         <Home
+          {...props}
           items={items}
         />
       )} />

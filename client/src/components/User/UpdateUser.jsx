@@ -12,6 +12,7 @@ export default function UpdateUser(props) {
 
   useEffect(() => {
     defaultUserData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.users])
   
   const defaultUserData = () => {

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export default function OrderOut(props) {
 
   const handleClick = () => {
-    const emptyCart = new Array()
+    const emptyCart = []
     props.setCart(emptyCart)
   }
 

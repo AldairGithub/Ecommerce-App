@@ -11,6 +11,7 @@ export default function UpdateItem(props) {
 
   useEffect(() => {
     defaultItemData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.items])
 
   const defaultItemData = () => {

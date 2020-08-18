@@ -2,12 +2,11 @@ import React from 'react'
 import './CartItem.css'
 
 export default function CartItem(props) {
-  const { currentUser } = props
 
   return (
     <>
       <div className='cart-item-container' key={props.index}>
-        <img className='cart-item-img' src={props.item.img_url} />
+        <img className='cart-item-img' src={props.item.img_url} alt={props.item.name}/>
         <div>
         <p>{props.item.name}</p>
         <p>${props.item.price}</p>
