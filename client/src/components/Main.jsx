@@ -21,7 +21,7 @@ export default function Main(props) {
   const { setCurrentUser } = props
 
   const [items, setItems] = useState([])
-  const [item, setItem] = useState({})
+  const [item] = useState({})
 
   const [users, setUsers] = useState([])
 

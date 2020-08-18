@@ -12,7 +12,7 @@ export default function ItemData(props) {
   }
   return (
     <div className='item-data-container'>
-      <img src={props.item.img_url} />
+      <img src={props.item.img_url} alt={props.item.name}/>
       <h3>{props.item.name}</h3>
       {props.item.categories && props.item.categories.map((str, index) => (
         <div key={index}>

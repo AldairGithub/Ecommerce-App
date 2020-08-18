@@ -8,7 +8,9 @@ export default function UserItemCategories(props) {
   useEffect(() => {
     const { id } = props
     getItem(id)
-  })
+    // gets rid of warning on missing dependency
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
 
   const getItem = async (id) => {
     const itemData = await readOneItem(id)

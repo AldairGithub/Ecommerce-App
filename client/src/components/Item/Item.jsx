@@ -8,6 +8,7 @@ export default function Item(props) {
 
   useEffect(() => {
     getItem(props.match.params.id)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const getItem = async (id) => {

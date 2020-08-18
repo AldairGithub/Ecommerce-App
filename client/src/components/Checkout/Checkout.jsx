@@ -3,7 +3,7 @@ import './Checkout.css'
 import { Link } from 'react-router-dom'
 
 export default function Checkout(props) {
-  let [total, setTotal] = useState(props.total)
+  let [total] = useState(props.total)
 
   return (
     <div className='credit-card'>
