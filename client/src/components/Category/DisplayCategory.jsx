@@ -6,8 +6,9 @@ export default function UserItemCategories(props) {
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
-    getItem(props.id)
-  }, [])
+    const { id } = props
+    getItem(id)
+  })
 
   const getItem = async (id) => {
     const itemData = await readOneItem(id)

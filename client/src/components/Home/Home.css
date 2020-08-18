@@ -43,7 +43,7 @@
   .item-container {
     width: 350px;
     border: transparent;
-    margin-top: 20px;
+    margin-bottom: -200px;
   }
   .item-container p{
     margin-top: 50px;

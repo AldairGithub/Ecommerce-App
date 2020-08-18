@@ -77,8 +77,9 @@ export default function Main(props) {
         />
       )} />
 
-      <Route exact path='/home' render={() => (
+      <Route exact path='/home' render={(props) => (
         <Home
+          {...props}
           items={items}
         />
       )} />
