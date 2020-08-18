@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './CreateItem.css'
 import { postItem } from '../../services/items'
 
 export default function CreateItem(props) {
@@ -28,8 +29,13 @@ export default function CreateItem(props) {
 
 
   return (
+    <>
+      <div>
+        <h2>My Business</h2>
+      </div>
+      <h3>Create Item</h3>
+      <div className='create-item-container'>
     <form onSubmit={handleSubmit}>
-      <p>This component creates an item</p>
       <input
         type='text'
         name='name'
@@ -52,6 +58,8 @@ export default function CreateItem(props) {
         placeholder="Image"
       />
       <button>Submit</button>
-    </form>
+      </form>
+      </div>
+    </>
   )
 }

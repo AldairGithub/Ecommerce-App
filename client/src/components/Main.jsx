@@ -9,23 +9,28 @@ import Register from './SignUp/SignUp'
 import UpdateUser from './User/UpdateUser'
 import Home from './Home/Home'
 import Item from './Item/Item'
-import UserItems from './UserItems'
+import UserItems from './UserItems/UserItems'
 import CreateItem from './CreateItem/CreateItem'
 import UpdateItem from './UpdateItem/UpdateItem'
-import Cart from './Cart'
+import Cart from './Cart/Cart'
+import Checkout from './Checkout/Checkout'
+import OrderOut from './OrderOut/OrderOut'
 
 export default function Main(props) {
   const { currentUser } = props
   const { setCurrentUser } = props
 
   const [items, setItems] = useState([])
-  const [item, setItem] = useState({})
+  const [item] = useState({})
 
   const [users, setUsers] = useState([])
 
   const [categories, setCategories] = useState([])
 
   const [cart, setCart] = useState([])
+
+  const [total, setTotal] = useState(0)
+
   
   useEffect(() => {
     getItems()
@@ -72,8 +77,9 @@ export default function Main(props) {
         />
       )} />
 
-      <Route exact path='/home' render={() => (
+      <Route exact path='/home' render={(props) => (
         <Home
+          {...props}
           items={items}
         />
       )} />
@@ -100,6 +106,7 @@ export default function Main(props) {
       <Route exact path='/users/:id/new' render={(props) => (
         <CreateItem
           {...props}
+          currentUser={currentUser}
           items={items}
           setItems={setItems}
         />
@@ -118,8 +125,25 @@ export default function Main(props) {
           {...props}
           cart={cart}
           setCart={setCart}
+          total={total}
+          setTotal={setTotal}
         />
       )} />
+
+      <Route exact path='/users/:id/checkout' render={(props) => (
+        <Checkout
+          {...props}
+          total={total}
+          currentUserAddress={currentUser.address}
+        />
+      )} />
+
+      <Route exact path='/users/:id/orderout' render={(props) => (
+        <OrderOut
+          setCart={setCart}
+        />
+      )} />
+
     </main>
   )
 }

@@ -108,14 +108,14 @@ src
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Add log in and register actions | M | 4 hrs | TBD | TBD |
-| Create CRUD Actions for Items | H | 6 hrs | TBD | TBD |
-| Create cart component | H | 4 hrs | TBD | TBD |
-| Add a display all and display one component | H | 2 hrs | TBD | TBD |
-| Connect backend to frontend | H | 4 hrs | TBD | TBD |
-| Add links to components | M | 2 hr | TBD | TBD |
-| Add CSS | L | 2 hrs | TBD | TBD |
-| TOTAL               |          |     24 hrs      |     TBD     |     TBD     |
+| Add log in and register actions | M | 4 hrs | 2 hrs | 2 hrs |
+| Create CRUD Actions for Items | H | 6 hrs | 4 hrs | 4 hrs |
+| Create cart component | H | 4 hrs | 7 hrs | 7 hrs |
+| Add a display all and display one component | H | 2 hrs | 2 hrs |2 hrs |
+| Connect backend to frontend | H | 4 hrs | 6 hrs | 6 hrs |
+| Add links to components | M | 2 hr | 3 hrs | 3 hrs |
+| Add CSS | L | 2 hrs | 12 hrs | 12 hrs |
+| TOTAL               |          |     24 hrs      |     36 hrs     |     36 hrs     |
 
 <br>
 
@@ -139,6 +139,8 @@ src
 ***
 
 ## Code Showcase
+
+
 
 
 ## Code Issues & Resolutions

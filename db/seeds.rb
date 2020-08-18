@@ -14,17 +14,17 @@ User.destroy_all
 @moser = User.create(username: 'moser', email: 'moser@email.com', address: '123 Dr. 654-12', password: 'aldair')
 puts "#{User.count} users created"
 
-@spaceship_poster = Item.create(name: 'Spaceship Poster', price: 10, img_url: 'https://i.imgur.com/PnUuUtU.jpg', user: @admin)
-@guitar = Item.create(name: 'Guitar', price: 150, img_url: 'https://i.imgur.com/lh59qZH.jpg', user: @admin)
-@flowers = Item.create(name: 'Flowers', price: 20, img_url: 'https://i.imgur.com/huSgzp2.jpg', user: @admin)
+@spaceship_poster = Item.create(name: 'Spaceship Poster', price: 10, img_url: 'https://i.imgur.com/PnUuUtU.jpg', quantity: 1, user: @admin)
+@guitar = Item.create(name: 'Guitar', price: 150, img_url: 'https://i.imgur.com/lh59qZH.jpg', quantity: 1, user: @admin)
+@flowers = Item.create(name: 'Flowers', price: 20, img_url: 'https://i.imgur.com/huSgzp2.jpg', quantity: 1, user: @admin)
 
-@accoustic_guitar = Item.create(name: 'Accoustic Guitar', price: 100, img_url: 'https://i.imgur.com/qilptGI.jpg', user: @user)
-@egg_decorations = Item.create(name: 'Egg Decorations', price: 10, img_url: 'https://i.imgur.com/TQw5NJl.jpg', user: @user)
-@dices = Item.create(name: 'Dices', price: 1, img_url: 'https://i.imgur.com/ywoFPVE.jpg' , user: @user)
+@accoustic_guitar = Item.create(name: 'Accoustic Guitar', price: 100, img_url: 'https://i.imgur.com/qilptGI.jpg', quantity: 1, user: @user)
+@egg_decorations = Item.create(name: 'Egg Decorations', price: 10, img_url: 'https://i.imgur.com/TQw5NJl.jpg', quantity: 1, user: @user)
+@dices = Item.create(name: 'Dice', price: 1, img_url: 'https://i.imgur.com/ywoFPVE.jpg' , quantity: 1, user: @user)
 
-@wave_poster = Item.create(name: 'Wave Poster', price: 10, img_url: 'https://i.imgur.com/XhE2N3q.jpg', user: @moser)
-@ibanez = Item.create(name: 'Ibanez SA360QM', price: 400, img_url: 'https://i.imgur.com/WeN545k.jpg', user: @moser)
-@wrist_watch = Item.create(name: 'Wrist Watch', price: 1000, img_url: 'https://i.imgur.com/qDvVHCv.jpg', user: @moser)
+@wave_poster = Item.create(name: 'Wave Poster', price: 10, img_url: 'https://i.imgur.com/XhE2N3q.jpg', quantity: 1, user: @moser)
+@ibanez = Item.create(name: 'Ibanez SA360QM', price: 400, img_url: 'https://i.imgur.com/WeN545k.jpg', quantity: 1, user: @moser)
+@wrist_watch = Item.create(name: 'Wrist Watch', price: 1000, img_url: 'https://i.imgur.com/qDvVHCv.jpg', quantity: 1, user: @moser)
 puts "#{Item.count} items created"
 
 @music = Category.create(name: 'Music')
@@ -46,5 +46,5 @@ puts "#{Category.count} categories created"
 @dices.categories.push(@entertainment)
 
 @wave_poster.categories.push(@nature, @decoration)
-@ibanez.categories.push(@music, @style, @entertainment)
+@ibanez.categories.push(@music, @entertainment)
 @wrist_watch.categories.push(@outwear)
