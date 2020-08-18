@@ -15,6 +15,7 @@
 
 .item-container {
   margin-top: 40px;
+  height: 300px;
   width: 400px;
   border: 1px solid black;
 }
@@ -22,7 +23,14 @@
 .item-container a {
   color: black;
 }
-
+@media only screen and (max-width: 768px) {
+  .home-container img{
+    height: 100px;
+  }
+  .item-container {
+    width: 250px;
+  }
+}
 @media only screen and (max-width: 375px) {
   .home-container{
     margin-top: -40px;
