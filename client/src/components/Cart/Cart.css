@@ -17,13 +17,15 @@
 }
 
 .total-container {
-  position: absolute;
+  position: fixed;
   top: 35%;
   right: 25%;
 }
 
 @media only screen and (max-width: 768px) {
-  
+  .total-container {
+    top: 25%;
+  }
 }
 @media only screen and (max-width: 375px) {
   .cart-container {
