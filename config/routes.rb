@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # cors issue
+  root to 'items#index'
+
   resources :categories, only: :index
   resources :items
   resources :users
