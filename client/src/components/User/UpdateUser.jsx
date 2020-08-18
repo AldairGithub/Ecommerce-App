@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import './UpdateUser.css'
 import { updateUser } from '../../services/users'
 
 export default function UpdateUser(props) {
@@ -48,6 +49,7 @@ export default function UpdateUser(props) {
   }
 
   return (
+    <div className='update-container'>
     <form onSubmit={handleSubmit}>
       <h3>UPDATE ACCOUNT</h3>
       <input
@@ -76,17 +78,19 @@ export default function UpdateUser(props) {
         name='password'
         value={userData.password}
         onChange={handleChange}
-        placeholder='Password'
+        placeholder='Old Password'
       />
-      <label>Type password to update account</label>
       <input
         type='password'
         name='password'
         value={userData.password}
         onChange={handleChange}
-        placeholder='Password'
-      />
-      <button>Submit</button>
-    </form>
+        placeholder='New Password'
+        />
+        <div>
+          <button className='button'>Submit</button>
+        </div>
+      </form>
+    </div>
   )
 }

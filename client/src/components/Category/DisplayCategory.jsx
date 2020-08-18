@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import './DisplayCategory.css'
 import { readOneItem } from '../../services/items'
 
 export default function UserItemCategories(props) {
@@ -16,9 +17,9 @@ export default function UserItemCategories(props) {
   return (
     <>
       {categories.map((category, index) => (
-        <>
-          <p key={index}>{category.name}</p>
-        </>
+        <div className='display-category' key={index}>
+          <p>{category.name}</p>
+        </div>
       ))}
     </>
   )

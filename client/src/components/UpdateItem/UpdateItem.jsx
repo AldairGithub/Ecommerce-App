@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import './UpdateItem.css'
 import { putItem } from '../../services/items'
 
 export default function UpdateItem(props) {
@@ -46,8 +47,13 @@ export default function UpdateItem(props) {
   }
 
   return (
+    <>
+    <div>
+      <h2>My Business</h2>
+    </div>
+    <h3>Update Item</h3>
+    <div className='create-item-container'>
     <form onSubmit={handleSubmit}>
-      <p>This component updates an item</p>
       <input
         type='text'
         name='name'
@@ -70,6 +76,8 @@ export default function UpdateItem(props) {
         placeholder="Image"
       />
       <button>Submit</button>
-    </form>
+        </form>
+      </div>
+    </>
   )
 }

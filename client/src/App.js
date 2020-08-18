@@ -13,11 +13,6 @@ export default function App() {
 
   const handleVerify = async () => {
     const userData = await verifyUser()
-    if (userData) {
-      console.log('User logged in')
-    } else {
-      console.log('User not logged')
-    }
     setCurrentUser(userData)
   }
 

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import './SignUp.css'
 import { registerUser } from '../../services/auth'
+import {Link} from 'react-router-dom'
 
 export default function Register(props) {
   const [newUserData, setNewUserData] = useState({
@@ -25,6 +27,7 @@ export default function Register(props) {
   }
 
   return (
+    <div className='button sign-up-container'>
     <form onSubmit={handleSubmit}>
       <h3>CREATE AN ACCOUNT</h3>
       <input
@@ -56,6 +59,11 @@ export default function Register(props) {
         placeholder='Email'
       />
       <button>Submit</button>
-    </form>
+      </form>
+      <p>Already have an account?</p>
+      <div className='button'>
+        <Link to='/'><button>Sign In</button></Link>
+      </div>
+    </div>
   )
 }

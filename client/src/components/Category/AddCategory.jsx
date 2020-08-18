@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import './AddCategory.css'
 import { addCategory } from '../../services/items'
 
 export default function AddCategory(props) {
@@ -25,10 +26,9 @@ export default function AddCategory(props) {
 
   return (
     <>
-      <p>Add categories will go here</p>
       {
         item && (
-          <>
+          <div className='add-category-container'>
             <form onSubmit={handleSubmit}>
               <select onChange={handleChange}>
                 <option selected disabled>-- Select Category --</option>
@@ -38,7 +38,7 @@ export default function AddCategory(props) {
               </select>
               <button>Add</button>
             </form>
-          </>
+          </div>
         )
       }
     </>

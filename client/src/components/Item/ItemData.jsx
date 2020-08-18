@@ -1,4 +1,5 @@
 import React from 'react'
+import './ItemData.css'
 
 export default function ItemData(props) {
 
@@ -10,15 +11,18 @@ export default function ItemData(props) {
     ])
   }
   return (
-    <>
-      <p>{props.item.name}</p>
+    <div className='item-data-container'>
+      <img src={props.item.img_url} />
+      <h3>{props.item.name}</h3>
       {props.item.categories && props.item.categories.map((str, index) => (
-        <>
-          <p key={index}>{str.name}</p>
-        </>
+        <div key={index}>
+          <h4>{str.name}</h4>
+        </div>
       ))}
-      <p>{props.item.price}</p>
-      <button onClick={() => handleClick(props.item)}>Add to Cart</button>
-    </>
+      <h1>${props.item.price}</h1>
+      <div className='button button-cart'>
+        <button onClick={() => handleClick(props.item)}>Add to Cart</button>
+      </div>
+    </div>
   )
 }
