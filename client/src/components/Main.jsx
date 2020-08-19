@@ -31,7 +31,7 @@ export default function Main(props) {
 
   const [total, setTotal] = useState(0)
 
-  
+
   useEffect(() => {
     getItems()
     getUsers()
@@ -42,7 +42,7 @@ export default function Main(props) {
     const itemList = await readAllItems()
     setItems(itemList)
   }
-  
+
   const getUsers = async () => {
     const userList = await readAllUsers()
     setUsers(userList)
