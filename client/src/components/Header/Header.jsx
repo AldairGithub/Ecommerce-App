@@ -36,7 +36,7 @@ export default function Header(props) {
             <Link to={`/`}><button>Sign In</button></Link>
               </div>
           <div className='notHome'>
-            <Link className='notHome' to='/home'><h1>My Ecommerce App</h1></Link>
+            <Link className='notHome' to='/home'><h1>Ecommerce-Marketplace</h1></Link>
           </div>
         </div>
         )
