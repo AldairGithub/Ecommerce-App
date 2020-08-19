@@ -1,4 +1,4 @@
-# Ecommerce-App
+# Ecommerce-Marketplace
 
 - [Overview](#overview)
 - [MVP](#mvp)

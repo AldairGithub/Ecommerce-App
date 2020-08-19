@@ -26,7 +26,7 @@ export default function Header(props) {
               <button onClick={handleLogout}>Logout</button>
             </div>
             <div className='home'>
-              <Link to='/home'><h1>My Ecommerce App</h1></Link>
+              <Link to='/home'><h1>Ecommerce-Marketplace</h1></Link>
             </div>
         </div>
         ) : (
