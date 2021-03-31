@@ -4,9 +4,12 @@
   justify-content: space-between;
 }
 .header a {
-  font-family: Arial, Helvetica, sans-serif;
   color: black;
   font-size: 15px;
+}
+.home h1 {
+  font-family: 'Alegreya Sans', sans-serif;
+  letter-spacing: 5px;
 }
 .user-nav {
   display: flex;
@@ -38,6 +41,7 @@
   text-align: left;
   z-index: 1;
   border-radius: 12px 0px 12px 12px;
+  font-family: 'IBM Plex Mono', monospace;
 }
 .dropdown-icon {
   margin-right: 5px;
@@ -76,17 +80,32 @@
   display: block;
 }
 
-.user-nav button {
-  margin-right: 10px;
-}
-
 .home {
   margin-left: 2%;
 }
-
-.notHome {
-  margin-top: 50px;
+.register-buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-top: 15px;
+  margin-right: 55px;
 }
+.header-sign-button-container {
+  border-radius: 12px;
+  width: 100px;
+  border: 1px solid transparent;
+  transition: transform 200ms cubic-bezier(0.345, 0.115, 0.135, 1.42),background 150ms ease-out,box-shadow 200ms ease-out;
+}
+.header-sign-button-container:hover {
+  border: 1px solid gray;
+  transition: 500ms;
+}
+.header-sign-text {
+  font-size: 16px;
+  line-height: 1.4;
+  min-height: 0px;
+  min-width: 55px;
+}
+
 @media only screen and (max-width: 768px) {
   .user-nav{
     margin: 0;

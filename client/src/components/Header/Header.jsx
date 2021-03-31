@@ -14,6 +14,9 @@ export default function Header(props) {
   const handleDropdown = () => {
     setShowDropdown(!showDropdown)
   }
+  const closeDropdown = () => {
+    setShowDropdown(false)
+  }
 
   const history = useHistory()
 
@@ -30,8 +33,10 @@ export default function Header(props) {
       {
         props.currentUser !== null ? (
           <div className='header'>
-            <div className='home'>
-              <Link to='/'><h1>Ecommerce-Marketplace</h1></Link>
+            <div className='home' onClick={closeDropdown}>
+              <Link to='/'>
+                <h1>Markeet</h1>
+              </Link>
             </div>
             <div className='user-nav button'>
               <div className='dropdown'>
@@ -45,7 +50,7 @@ export default function Header(props) {
 
                   {/* User profile */}
                   <Link to={`/users/${currentUser.id}/items`}>
-                    <div className='icon-user-row' onClick={handleDropdown}>
+                    <div className='icon-user-row' onClick={closeDropdown}>
                       <FontAwesomeIcon className='icon-user' color={'gray'} icon={faHouseUser} size='2x' />
                       <div className='text-left icon-user-column'>
                         <strong>{currentUser.username}</strong><p>View Profile</p>
@@ -55,7 +60,7 @@ export default function Header(props) {
 
                   {/* Update User */}
                   <Link to={`/users/${currentUser.id}`}>
-                    <div className='subicon-container-row' onClick={handleDropdown}>
+                    <div className='subicon-container-row' onClick={closeDropdown}>
                       <FontAwesomeIcon className='subicon-icon' icon={faUserEdit} size='1x' />
                       <p className='subicon-text'>Update Account</p>
                     </div>
@@ -70,7 +75,7 @@ export default function Header(props) {
 
                 </div>
               </div>
-              
+
               <Link to={`/users/${currentUser.id}/cart`}>
                 <div className='dropdown'>
                   <FontAwesomeIcon icon={ faShoppingCart } size='2x'/>
@@ -80,13 +85,18 @@ export default function Header(props) {
             </div>
         </div>
         ) : (
+            
         <div className='header'>
-          <div className='user-nav button'>
-            <Link to={`/register`}><button>Sign Up</button></Link>
-            <Link to={`/signin`}><button>Sign In</button></Link>
-              </div>
-          <div className='notHome'>
-            <Link className='notHome' to='/'><h1>Ecommerce-Marketplace</h1></Link>
+          <div className='home'>
+            <Link to='/'><h1>Markeet</h1></Link>
+          </div>
+          <div className='register-buttons'>
+            <div className='header-sign-button-container' style={{marginRight: '20px'}}>
+              <Link to={`/register`}><p className='header-sign-text'>Sign Up</p></Link>
+            </div>
+            <div className='header-sign-button-container'>
+              <Link to={`/signin`}><p className='header-sign-text'>Sign In</p></Link>
+            </div>
           </div>
         </div>
         )

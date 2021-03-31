@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import { readAllItems } from '../services/items'
 import { readAllUsers } from '../services/users'
 import { readAllCategories } from '../services/categories'
+import { readOneItem } from '../services/items'
 
 import Login from './SignIn/SignIn'
 import Register from './SignUp/SignUp'
@@ -40,7 +41,15 @@ export default function Main(props) {
 
   const getItems = async () => {
     const itemList = await readAllItems()
-    setItems(itemList)
+
+    const getCategory = async (id) => {
+      const item = await readOneItem(id)
+      return item
+    }
+    const items = await Promise.all(itemList.map(async (item) => 
+      getCategory(item.id)
+    ))
+    setItems(items)
   }
 
   const getUsers = async () => {
