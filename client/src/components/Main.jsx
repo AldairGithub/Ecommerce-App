@@ -55,7 +55,7 @@ export default function Main(props) {
 
   return (
     <main>
-      <Route exact path='/' render={(props) => (
+      <Route exact path='/signin' render={(props) => (
         <Login
           {...props}
           setCurrentUser={setCurrentUser}
@@ -77,7 +77,7 @@ export default function Main(props) {
         />
       )} />
 
-      <Route exact path='/home' render={(props) => (
+      <Route exact path='/' render={(props) => (
         <Home
           {...props}
           items={items}

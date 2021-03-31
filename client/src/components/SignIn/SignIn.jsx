@@ -21,7 +21,7 @@ export default function Login(props) {
     e.preventDefault()
     const userData = await loginUser(newUserData)
     props.setCurrentUser(userData)
-    props.history.push('/home')
+    props.history.push('/')
   }
 
   return (
