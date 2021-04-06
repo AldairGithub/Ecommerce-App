@@ -14,6 +14,11 @@ export default function Home(props) {
   const [itemsLoaded, setItemsLoaded] = useState(true)
 
   useEffect(() => {
+    try {
+      items && setTimeout(() => setItemsLoaded(false), 2000)
+    } catch(err) {
+      console.log(err)
+    }
     if (items !== null) {
       setFurniture(
         filterItemsByCategory('Furniture')
@@ -24,9 +29,10 @@ export default function Home(props) {
       setStyle(
         filterItemsByCategory('Style')
       )
-      setTimeout(() => {
-        setItemsLoaded(false)
-      }, 2000)
+      // setTimeout(() => {
+      //   setItemsLoaded(false)
+      // }, 2000)
+      // setItemsLoaded(false)
     }
   }, [items])
 
@@ -76,6 +82,5 @@ export default function Home(props) {
 
       </div>
     </>
-
   )
 }
