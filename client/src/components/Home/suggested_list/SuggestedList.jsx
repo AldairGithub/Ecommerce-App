@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import './SuggestedList.css'
 
 export default function SuggestedList(props) {
   const { items } = props
+
+  const [list, setList] = useState([])
+
+  useEffect(() => {
+    if (items !== null) {
+      const filteredOnlyFurniture = items.filter((i, j) => j <= 7 && i.categories.length === 1)
+      setList(filteredOnlyFurniture)
+    }
+  }, [items])
   
   return (
     <>
@@ -15,9 +24,8 @@ export default function SuggestedList(props) {
         </div>
 
         <div className='suggested-list-items'>
-          {items !== null &&
             <>
-              {items.map(item => (
+              {list.map(item => (
                 <>
                   <div className='suggested-list-item'>
                     <div className='suggested-list-img-container'>
@@ -36,7 +44,6 @@ export default function SuggestedList(props) {
                 </>
               ))}
             </>
-          }
         </div>
 
       </div>

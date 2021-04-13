@@ -6,10 +6,17 @@ import { useHistory } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCog, faCaretDown, faHouseUser, faUserEdit, faShoppingCart, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 
+import SearchBar from '../search_bar/SearchBar'
+
 export default function Header(props) {
-  const { currentUser, setCurrentUser } = props
+  const { currentUser, setCurrentUser, items, categories } = props
 
   const [showDropdown, setShowDropdown] = useState(false)
+  const [search, setSearch] = useState({
+    item: ''
+  })
+  const [itemList, setItemList] = useState([])
+  const [categoryList, setCategoryList] = useState([])
 
   const handleDropdown = () => {
     setShowDropdown(!showDropdown)
@@ -28,16 +35,45 @@ export default function Header(props) {
     history.push('/')
   }
 
+  const filterSearch = (str) => {
+    if (str.length === 0) {
+      const noList = []
+      setItemList(noList)
+      setCategoryList(noList)
+    } else {
+      const filteredItems = items.filter(ele => {
+        return ele.name.toLowerCase().includes(str)
+      })
+      const filteredCategories = categories.filter(ele => {
+        return ele.name.toLowerCase().includes(str)
+      })
+      setItemList(filteredItems)
+      setCategoryList(filteredCategories)
+    }
+  }
+
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setSearch({
+      ...search,
+      [name]: value
+    })
+    filterSearch(value.toLowerCase())
+  }
+
   return (
     <header>
-      {
-        props.currentUser !== null ? (
+      {currentUser !== null ? (
           <div className='header'>
             <div className='home' onClick={closeDropdown}>
               <Link to='/'>
                 <h1>Markeet</h1>
               </Link>
-            </div>
+          </div>
+          <div className='search-bar-position'>
+            <SearchBar items={items} categories={ categories }/>
+          </div>
             <div className='user-nav button'>
               <div className='dropdown'>
                 <div onClick={handleDropdown}>
@@ -88,8 +124,13 @@ export default function Header(props) {
             
         <div className='header'>
           <div className='home'>
-            <Link to='/'><h1>Markeet</h1></Link>
-          </div>
+            <Link to='/'>
+              <h1>Markeet</h1>
+            </Link>
+            </div>
+            <div className='search-bar-position'>
+              <SearchBar items={items} categories={ categories }/>
+            </div>
           <div className='register-buttons'>
             <div className='header-sign-button-container' style={{marginRight: '20px'}}>
               <Link to={`/register`}><p className='header-sign-text'>Sign Up</p></Link>

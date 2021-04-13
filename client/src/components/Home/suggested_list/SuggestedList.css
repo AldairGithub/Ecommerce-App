@@ -4,16 +4,22 @@
   justify-content: center;
   align-items: center;
   margin-top: 25px;
+  padding: 25px;
+}
+.suggested-list-title {
+  margin-bottom: 25px;
 }
 .suggested-list-items {
   display: flex;
   flex-flow: row;
   margin-top: 35px;
+  width: 100%;
+  justify-content: space-evenly;
+  padding: 0px 12px;
 }
 .suggested-list-item {
   display: flex;
   flex-flow: column nowrap;
-  margin-right: 15px;
 }
 .suggested-list-img-container {
   width: 188px;

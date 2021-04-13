@@ -62,6 +62,19 @@ puts "#{User.count} users created"
 @hat_six = Item.create(name: 'Pink Hat', price: 30, img_url: 'https://i.imgur.com/pLx40V9.jpg', quantity: 30, user: @al)
 # Photo by Pixabay from Pexels
 
+@table_one = Item.create(name: 'Table with Glass of Milk', price: 30, img_url: 'https://i.imgur.com/V2EVDfW.jpg', quantity: 500, user: @zm)
+# Photo by Juan Pablo Serrano Arenas from Pexels
+@table_two = Item.create(name: 'Table with metal chair', price: 50, img_url: 'https://i.imgur.com/HBTl3Ug.jpg', quantity: 200, user: @zm)
+# Photo by Scott Webb from Pexels
+@table_three = Item.create(name: 'Wood Table with two chairs', price: 50, img_url: 'https://i.imgur.com/TuYOz5m.jpg', quantity: 100, user: @admin)
+# Photo by Blank Space from Pexels
+@table_four = Item.create(name: 'Table with Comfy chair', price: 40, img_url: 'https://i.imgur.com/Pu6UV9e.jpg', quantity: 30, user: @al)
+# Photo by Pixabay from Pexels
+@table_five = Item.create(name: 'Outside table set for Garden', price: 150, img_url: 'https://i.imgur.com/vgkD1zE.jpg', quantity: 500, user: @zm)
+# Photo by Engin Akyurt from Pexels
+@table_six = Item.create(name: 'Rectangular table with two white Chairs', price: 100, img_url: 'https://i.imgur.com/4dXc9uZ.jpg', quantity: 300, user: @al)
+# Photo by Pixabay from Pexels
+
 @spaceship_poster = Item.create(name: 'Spaceship Poster', price: 10, img_url: 'https://i.imgur.com/PnUuUtU.jpg', quantity: 1, user: @admin)
 @guitar = Item.create(name: 'Guitar', price: 150, img_url: 'https://i.imgur.com/lh59qZH.jpg', quantity: 1, user: @admin)
 @flowers = Item.create(name: 'Flowers', price: 20, img_url: 'https://i.imgur.com/huSgzp2.jpg', quantity: 1, user: @admin)
@@ -83,6 +96,7 @@ puts "#{Item.count} items created"
 @entertainment = Category.create(name: 'Entertainment')
 @future = Category.create(name: 'Future')
 @furniture = Category.create(name: 'Furniture')
+@table = Category.create(name: 'Table')
 puts "#{Category.count} categories created"
 
 @sofa_one.categories.push(@furniture)
@@ -107,6 +121,13 @@ puts "#{Category.count} categories created"
 @hat_four.categories.push(@style)
 @hat_five.categories.push(@style)
 @hat_six.categories.push(@style)
+
+@table_one.categories.push(@furniture, @table)
+@table_two.categories.push(@furniture, @table)
+@table_three.categories.push(@furniture, @table)
+@table_four.categories.push(@furniture, @table)
+@table_five.categories.push(@furniture, @table)
+@table_six.categories.push(@furniture, @table)
 
 @spaceship_poster.categories.push(@decoration)
 @guitar.categories.push(@music)

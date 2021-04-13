@@ -4,13 +4,17 @@ import { Link } from 'react-router-dom'
 import SuggestedList from './suggested_list/SuggestedList'
 import DiscoverHobbies from './discover_hobbies/DiscoverHobbies'
 import DiscoverStyles from './discover_styles/DiscoverStyles'
-
+import EditorPick from './editor_pick/EditorPick'
+import DiscoverCategories from './discover_categories/DiscoverCategories'
+import Footer from '../footer/Footer'
+ 
 export default function Home(props) {
-  const { items } = props
+  const { items, categories } = props
 
   const [furniture, setFurniture] = useState(null)
   const [music, setMusic] = useState(null)
   const [style, setStyle] = useState(null)
+  const [table, setTable] = useState(null)
   const [itemsLoaded, setItemsLoaded] = useState(true)
 
   useEffect(() => {
@@ -28,6 +32,9 @@ export default function Home(props) {
       )
       setStyle(
         filterItemsByCategory('Style')
+      )
+      setTable(
+        filterItemsByCategory('Table')
       )
       // setTimeout(() => {
       //   setItemsLoaded(false)
@@ -54,14 +61,26 @@ export default function Home(props) {
           </>
           :
           <>
-            <div>
-              <DiscoverStyles items={ style }/>
+            <div className='components-container'>
+              <div className='components-separate'>
+                <DiscoverStyles items={ style }/>
+              </div>
+              <div className='components-separate'>
+                <SuggestedList items={ furniture }/>
+              </div>
+              <div className='components-separate'>
+                <DiscoverHobbies items={ music }/>
+              </div>
+              <div className='components-separate'>
+                <EditorPick items={ table }/>
+              </div>
+              <div className='components-separate'>
+                <DiscoverCategories categories={ categories }/>
+              </div>
             </div>
-            <div>
-              <SuggestedList items={ furniture }/>
-            </div>
-            <div>
-              <DiscoverHobbies items={ music }/>
+
+            <div className='components-separate'>
+              <Footer />
             </div>
           </>
         }

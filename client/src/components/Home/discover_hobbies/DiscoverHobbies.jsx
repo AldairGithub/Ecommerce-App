@@ -18,7 +18,7 @@ export default function DiscoverHobbies(props) {
     <>
       <div>
         <div>
-          <h1>Discover a new hobbie</h1>
+          <h1 style={{ marginBottom: '25px'}}>Discover a new hobbie</h1>
         </div>
 
         {/* all items on row */}
@@ -43,7 +43,7 @@ export default function DiscoverHobbies(props) {
                   </>
                   :
                   <>
-                    <div className='dh-container'>
+                    <div className='dh-container dh-sm-container'>
                       <div className='dh-sm-img'>
                         <img className='discover-hobbies-img' src={ item.img_url }/>
                       </div>

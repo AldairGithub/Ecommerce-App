@@ -1,0 +1,59 @@
+.sb-form-container {
+  display: inline-block;
+}
+
+.sb-display {
+  width: 52vh;
+  padding: 9px;
+  font-size: 14px;
+  font-family: FontAwesome, 'Arial';
+  font-style: normal;
+  font-weight: 400;
+}
+
+.sb-dropdown-top {
+  position: absolute;
+  z-index: 2;
+}
+
+.sb-dropdown-container {
+  position: relative;
+  background: #FFF;
+  border-radius: 5px;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  border: 1px solid gray;
+}
+
+.sb-dropdown-container[list='0'] {
+  display: none;
+}
+
+.sb-dropdown-list {
+  max-height: 300px;
+  width: 52vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: left;
+}
+
+.sb-dropdown-title-container {
+  padding: 8px;
+}
+
+.sb-dropdown-title {
+  color: gray;
+  font-size: 16px;
+}
+
+.sb-dropdown-element {
+  font-size: 14px;
+  padding: 2px;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.sb-dropdown-element:hover {
+  background-color: gray;
+  color: white;
+}

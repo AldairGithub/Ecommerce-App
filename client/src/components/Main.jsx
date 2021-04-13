@@ -1,32 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import { Route } from 'react-router-dom'
-import { readAllItems } from '../services/items'
 import { readAllUsers } from '../services/users'
-import { readAllCategories } from '../services/categories'
-import { readOneItem } from '../services/items'
 
-import Login from './SignIn/SignIn'
-import Register from './SignUp/SignUp'
-import UpdateUser from './User/UpdateUser'
-import Home from './Home/Home'
-import Item from './Item/Item'
-import UserItems from './UserItems/UserItems'
-import CreateItem from './CreateItem/CreateItem'
-import UpdateItem from './UpdateItem/UpdateItem'
-import Cart from './Cart/Cart'
-import Checkout from './Checkout/Checkout'
-import OrderOut from './OrderOut/OrderOut'
+import Login from './sign_in/SignIn'
+import Register from './sign_up/SignUp'
+import UpdateUser from './user/UpdateUser'
+import Home from './home/Home'
+import Item from './item/Item'
+import UserItems from './user_items/UserItems'
+import CreateItem from './create_item/CreateItem'
+import UpdateItem from './update_item/UpdateItem'
+import Cart from './cart/Cart'
+import Checkout from './checkout/Checkout'
+import OrderOut from './order_out/OrderOut'
 
 export default function Main(props) {
-  const { currentUser } = props
-  const { setCurrentUser } = props
+  const { currentUser, setCurrentUser, items, setItems, categories } = props
 
-  const [items, setItems] = useState([])
   const [item] = useState({})
 
   const [users, setUsers] = useState([])
-
-  const [categories, setCategories] = useState([])
 
   const [cart, setCart] = useState([])
 
@@ -34,32 +27,12 @@ export default function Main(props) {
 
 
   useEffect(() => {
-    getItems()
     getUsers()
-    getCategories()
   }, [])
-
-  const getItems = async () => {
-    const itemList = await readAllItems()
-
-    const getCategory = async (id) => {
-      const item = await readOneItem(id)
-      return item
-    }
-    const items = await Promise.all(itemList.map(async (item) => 
-      getCategory(item.id)
-    ))
-    setItems(items)
-  }
 
   const getUsers = async () => {
     const userList = await readAllUsers()
     setUsers(userList)
-  }
-
-  const getCategories = async () => {
-    const categoryList = await readAllCategories()
-    setCategories(categoryList)
   }
 
   return (
@@ -90,6 +63,7 @@ export default function Main(props) {
         <Home
           {...props}
           items={items}
+          categories={categories}
         />
       )} />
 
@@ -149,6 +123,7 @@ export default function Main(props) {
 
       <Route exact path='/users/:id/orderout' render={(props) => (
         <OrderOut
+          {...props}
           setCart={setCart}
         />
       )} />
