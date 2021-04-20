@@ -11,6 +11,8 @@ export default function App() {
   const [currentUser, setCurrentUser] = useState(null)
   const [items, setItems] = useState(null)
   const [categories, setCategories] = useState(null)
+  const [itemList, setItemList] = useState([])
+  const [categoryList, setCategoryList] = useState([])
 
   useEffect(() => {
     handleVerify()
@@ -48,6 +50,10 @@ export default function App() {
         setCurrentUser={setCurrentUser}
         items={items}
         categories={categories}
+        itemList={itemList}
+        setItemList={setItemList}
+        categoryList={categoryList}
+        setCategoryList={setCategoryList}
       />
       <Main
         currentUser={currentUser}
@@ -55,6 +61,10 @@ export default function App() {
         items={items}
         setItems={setItems}
         categories={categories}
+        itemList={itemList}
+        setItemList={setItemList}
+        categoryList={categoryList}
+        setCategoryList={setCategoryList}
       />
     </div>
   )

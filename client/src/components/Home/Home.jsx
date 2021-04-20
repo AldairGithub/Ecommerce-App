@@ -18,11 +18,34 @@ export default function Home(props) {
   const [itemsLoaded, setItemsLoaded] = useState(true)
 
   useEffect(() => {
-    try {
-      items && setTimeout(() => setItemsLoaded(false), 2000)
-    } catch(err) {
-      console.log(err)
-    }
+    setItemsLoaded(true)
+    setCategories()
+    // try {
+    //   items && setTimeout(() => setItemsLoaded(false), 2000)
+    // } catch(err) {
+    //   console.log(err)
+    // }
+    // if (items !== null) {
+    //   setFurniture(
+    //     filterItemsByCategory('Furniture')
+    //   )
+    //   setMusic(
+    //     filterItemsByCategory('Music')
+    //   )
+    //   setStyle(
+    //     filterItemsByCategory('Style')
+    //   )
+    //   setTable(
+    //     filterItemsByCategory('Table')
+    //   )
+      // setTimeout(() => {
+      //   setItemsLoaded(false)
+      // }, 2000)
+      // setItemsLoaded(false)
+    // }
+  }, [items])
+
+  const setCategories = () => {
     if (items !== null) {
       setFurniture(
         filterItemsByCategory('Furniture')
@@ -36,12 +59,9 @@ export default function Home(props) {
       setTable(
         filterItemsByCategory('Table')
       )
-      // setTimeout(() => {
-      //   setItemsLoaded(false)
-      // }, 2000)
-      // setItemsLoaded(false)
+      setItemsLoaded(false)
     }
-  }, [items])
+  }
 
   const filterItemsByCategory = (category) => {
     const filter = items.filter(item => {

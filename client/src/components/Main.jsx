@@ -13,9 +13,19 @@ import UpdateItem from './update_item/UpdateItem'
 import Cart from './cart/Cart'
 import Checkout from './checkout/Checkout'
 import OrderOut from './order_out/OrderOut'
+import Display from './display/Display'
 
 export default function Main(props) {
-  const { currentUser, setCurrentUser, items, setItems, categories } = props
+  const {
+    currentUser,
+    setCurrentUser,
+    items, setItems,
+    categories,
+    itemList,
+    setItemList,
+    categoryList,
+    setCategoryList
+  } = props
 
   const [item] = useState({})
 
@@ -64,8 +74,22 @@ export default function Main(props) {
           {...props}
           items={items}
           categories={categories}
+          itemList={itemList}
+          setItemList={setItemList}
+          categoryList={categoryList}
+          setCategoryList={setCategoryList}
         />
       )} />
+
+      <Route exact path='/search/:word' render={(props) => (
+        <Display
+          {...props}
+          items={items}
+          categories={categories}
+          itemList={itemList}
+          categoryList={categoryList}
+        />
+      )}/>
 
       <Route exact path='/items/:id/categories' render={(props) => (
         <Item

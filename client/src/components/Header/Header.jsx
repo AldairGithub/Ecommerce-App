@@ -9,14 +9,11 @@ import { faUserCog, faCaretDown, faHouseUser, faUserEdit, faShoppingCart, faSign
 import SearchBar from '../search_bar/SearchBar'
 
 export default function Header(props) {
-  const { currentUser, setCurrentUser, items, categories } = props
+  const { currentUser, setCurrentUser, items, categories, itemList, setItemList, categoryList, setCategoryList } = props
 
   const [showDropdown, setShowDropdown] = useState(false)
-  const [search, setSearch] = useState({
-    item: ''
-  })
-  const [itemList, setItemList] = useState([])
-  const [categoryList, setCategoryList] = useState([])
+
+  const [showSearchBody, setShowSearchBody] = useState(false)
 
   const handleDropdown = () => {
     setShowDropdown(!showDropdown)
@@ -34,45 +31,34 @@ export default function Header(props) {
     removeToken()
     history.push('/')
   }
-
-  const filterSearch = (str) => {
-    if (str.length === 0) {
-      const noList = []
-      setItemList(noList)
-      setCategoryList(noList)
-    } else {
-      const filteredItems = items.filter(ele => {
-        return ele.name.toLowerCase().includes(str)
-      })
-      const filteredCategories = categories.filter(ele => {
-        return ele.name.toLowerCase().includes(str)
-      })
-      setItemList(filteredItems)
-      setCategoryList(filteredCategories)
-    }
+  const openSearchBar = () => {
+    setShowSearchBody(true)
   }
-
-
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setSearch({
-      ...search,
-      [name]: value
-    })
-    filterSearch(value.toLowerCase())
+  const closeSearchBar = () => {
+    setShowSearchBody(false)
   }
 
   return (
     <header>
       {currentUser !== null ? (
-          <div className='header'>
+          <div className='header' onClick={closeSearchBar}>
             <div className='home' onClick={closeDropdown}>
               <Link to='/'>
                 <h1>Markeet</h1>
               </Link>
-          </div>
-          <div className='search-bar-position'>
-            <SearchBar items={items} categories={ categories }/>
+            </div>
+            <div className='search-bar-position'>
+            <SearchBar
+              openSearchBar={openSearchBar}
+              closeSearchBar={closeSearchBar}
+              showSearchBody={showSearchBody}
+              items={items}
+              categories={categories}
+              itemList={itemList}
+              setItemList={setItemList}
+              categoryList={categoryList}
+              setCategoryList={setCategoryList}
+            />
           </div>
             <div className='user-nav button'>
               <div className='dropdown'>
@@ -121,15 +107,25 @@ export default function Header(props) {
             </div>
         </div>
         ) : (
-            
-        <div className='header'>
+            // not signed in user
+        <div className='header' onClick={closeSearchBar}>
           <div className='home'>
             <Link to='/'>
               <h1>Markeet</h1>
             </Link>
             </div>
             <div className='search-bar-position'>
-              <SearchBar items={items} categories={ categories }/>
+              <SearchBar
+                openSearchBar={openSearchBar}
+                closeSearchBar={closeSearchBar}
+                showSearchBody={showSearchBody}
+                items={items}
+                categories={categories}
+                itemList={itemList}
+                setItemList={setItemList}
+                categoryList={categoryList}
+                setCategoryList={setCategoryList}
+              />
             </div>
           <div className='register-buttons'>
             <div className='header-sign-button-container' style={{marginRight: '20px'}}>

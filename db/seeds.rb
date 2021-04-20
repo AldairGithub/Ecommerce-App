@@ -92,7 +92,6 @@ puts "#{Item.count} items created"
 @decoration = Category.create(name: 'Decoration')
 @style = Category.create(name: 'Style')
 @outwear = Category.create(name: 'Outwear')
-@nature = Category.create(name: 'Nature')
 @entertainment = Category.create(name: 'Entertainment')
 @future = Category.create(name: 'Future')
 @furniture = Category.create(name: 'Furniture')

@@ -8,10 +8,19 @@ export default function DiscoverCategories(props) {
   const [list, setList] = useState(null)
   
   useEffect(() => {
-    setList(
-      categories.filter((i, j) => j <= 8)
-    )
+    getList()
+    // setList(
+    //   categories.filter((i, j) => j <= 8)
+    // )
   }, [categories])
+
+  const getList = () => {
+    if (categories !== null) {
+      setList(
+        categories.filter((i, j) => j <= 8)
+      )
+    }
+  }
   
   return (
     <>
