@@ -34,6 +34,7 @@
 .display-list {
   display: flex;
   flex-flow: column nowrap;
+  margin-top: 110px;
 }
 .display-list-container {
   display: grid;
@@ -44,4 +45,15 @@
   justify-content: center;
   margin-top: 55px;
   margin-bottom: 55px;
+}
+.display-list-container a{
+  color: black;
+}
+.no-results-container {
+  color: gray;
+  position: absolute;
+  margin-top: 95px;
+  left: 0;
+  right: 0;
+
 }

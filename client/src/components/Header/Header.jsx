@@ -9,7 +9,20 @@ import { faUserCog, faCaretDown, faHouseUser, faUserEdit, faShoppingCart, faSign
 import SearchBar from '../search_bar/SearchBar'
 
 export default function Header(props) {
-  const { currentUser, setCurrentUser, items, categories, itemList, setItemList, categoryList, setCategoryList } = props
+  const {
+    currentUser,
+    setCurrentUser,
+    items,
+    categories,
+    itemList,
+    setItemList,
+    categoryList,
+    setCategoryList,
+    cart,
+    setCart,
+    total,
+    setTotal
+  } = props
 
   const [showDropdown, setShowDropdown] = useState(false)
 
@@ -100,7 +113,8 @@ export default function Header(props) {
 
               <Link to={`/users/${currentUser.id}/cart`}>
                 <div className='dropdown'>
-                  <FontAwesomeIcon icon={ faShoppingCart } size='2x'/>
+                  <FontAwesomeIcon icon={faShoppingCart} size='2x' />
+                  <label style={{fontWeight: '500'}}>{ cart.length}</label>
                 </div>
               </Link>
 

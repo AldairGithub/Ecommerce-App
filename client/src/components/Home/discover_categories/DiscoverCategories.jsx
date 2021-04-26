@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
+import { Link } from 'react-router-dom'
+
 import './DiscoverCategories.css'
 
 export default function DiscoverCategories(props) {
@@ -31,9 +33,11 @@ export default function DiscoverCategories(props) {
           <div className='dc-display'>
             {list.map(id => (
               <>
-                <div className='dc-name-container'>
-                  <label className='dc-name'>{ id.name }</label>
-                </div>
+                <Link to={ `/search/${id.name}` }>
+                  <div className='dc-name-container'>
+                    <label className='dc-name'>{ id.name }</label>
+                  </div>
+                </Link>
               </>
             ))}
           </div>

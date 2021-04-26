@@ -24,17 +24,16 @@ export default function Main(props) {
     itemList,
     setItemList,
     categoryList,
-    setCategoryList
+    setCategoryList,
+    cart,
+    setCart,
+    total,
+    setTotal
   } = props
 
   const [item] = useState({})
 
   const [users, setUsers] = useState([])
-
-  const [cart, setCart] = useState([])
-
-  const [total, setTotal] = useState(0)
-
 
   useEffect(() => {
     getUsers()
@@ -81,7 +80,7 @@ export default function Main(props) {
         />
       )} />
 
-      <Route exact path='/search/:word' render={(props) => (
+      <Route path='/search/:word' render={(props) => (
         <Display
           {...props}
           items={items}
@@ -91,7 +90,7 @@ export default function Main(props) {
         />
       )}/>
 
-      <Route exact path='/items/:id/categories' render={(props) => (
+      <Route path='/item/:item_name/:id' render={(props) => (
         <Item
           {...props}
           item={item}

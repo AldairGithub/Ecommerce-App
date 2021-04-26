@@ -21,15 +21,7 @@ export default function SearchBar(props) {
   
   const [search, setSearch] = useState({
     input: ''
-    // show: null
   })
-
-  // useEffect(() => {
-  //   setSearch({
-  //     ...search,
-  //     show: showSearchBody
-  //   })
-  // })
 
   const filter = (i, j) => {
     return i.filter(ele => {
@@ -95,12 +87,12 @@ export default function SearchBar(props) {
                           <strong className='sb-dropdown-title'>Search by Category</strong>
                         </div>
                         {categoryList.map(str => (
-                        <>
-                            <div className='sb-dropdown-element'>
-                              <Link to={`/search/${str.name}`}>
+                          <>
+                            <Link to={`/search/${str.name}`}>
+                              <div className='sb-dropdown-element'>
                                 <p>{ str.name }</p>
-                              </Link>
-                          </div>
+                              </div>
+                            </Link>
                         </>
                       ))}
                     </>
@@ -112,9 +104,11 @@ export default function SearchBar(props) {
                       </div>
                       {itemList.map(str => (
                         <>
-                          <div className='sb-dropdown-element'>
-                            <p>{ str.name }</p>
-                          </div>
+                          <Link to={`/item/${str.name}/${str.id}`}>
+                            <div className='sb-dropdown-element'>
+                              <p>{ str.name }</p>
+                            </div>
+                          </Link>
                         </>
                       ))}
                     </>

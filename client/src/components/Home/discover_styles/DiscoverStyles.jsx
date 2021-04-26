@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
 import './DiscoverStyles.css'
 
@@ -20,10 +21,7 @@ export default function DiscoverStyles(props) {
       setList(
         items.filter((i, j) => j <= 5)
       )
-      // setLeftItem(filterById(firstId))
       setLeftItem(items.filter((i, j) => j === 0))
-      // setShowLeftItem(true)
-      // setRightItem(filterById(secondId))
       setRightItem(items.filter((i, j) => j === 1))
     }
   }, [items])
@@ -73,17 +71,19 @@ export default function DiscoverStyles(props) {
           <>
             {leftItem.map(item => (
               <>
-                <div className='ds-img-container'>
-                  <img
-                    className='ds-img'
-                    src={item.img_url}
-                    alt={`${item.name}`}
-                    // selects which way the user clicked (left or right) and plays their specific animation
-                    animation={animation}
-                    // resets the animation counter when it ends in case the user whats to keep going one way
-                    onAnimationEnd={() => setAnimation(null)}
-                  />
-                </div>
+                <Link to={`/item/${item.name}/${item.id}`}>
+                  <div className='ds-img-container'>
+                    <img
+                      className='ds-img'
+                      src={item.img_url}
+                      alt={`${item.name}`}
+                      // selects which way the user clicked (left or right) and plays their specific animation
+                      animation={animation}
+                      // resets the animation counter when it ends in case the user whats to keep going one way
+                      onAnimationEnd={() => setAnimation(null)}
+                    />
+                  </div>
+                </Link>
               </>
             ))}
           </>
@@ -95,15 +95,17 @@ export default function DiscoverStyles(props) {
           <>
             {rightItem.map(item => (
               <>
-                <div className='ds-img-container'>
-                  <img
-                    className='ds-img ds-img-onrender'
-                    src={item.img_url}
-                    alt={`${item.name}`}
-                    animation={animation}
-                    onAnimationEnd={() => setAnimation(null)}
-                  />
-                </div>
+                <Link to={`/item/${item.name}/${item.id}`}>
+                  <div className='ds-img-container'>
+                    <img
+                      className='ds-img ds-img-onrender'
+                      src={item.img_url}
+                      alt={`${item.name}`}
+                      animation={animation}
+                      onAnimationEnd={() => setAnimation(null)}
+                    />
+                  </div>
+                </Link>
               </>
             ))}
           </>

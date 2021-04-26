@@ -13,6 +13,8 @@ export default function App() {
   const [categories, setCategories] = useState(null)
   const [itemList, setItemList] = useState([])
   const [categoryList, setCategoryList] = useState([])
+  const [cart, setCart] = useState([])
+  const [total, setTotal] = useState(0)
 
   useEffect(() => {
     handleVerify()
@@ -54,6 +56,10 @@ export default function App() {
         setItemList={setItemList}
         categoryList={categoryList}
         setCategoryList={setCategoryList}
+        cart={cart}
+        setCart={setCart}
+        total={total}
+        setTotal={setTotal}
       />
       <Main
         currentUser={currentUser}
@@ -65,6 +71,10 @@ export default function App() {
         setItemList={setItemList}
         categoryList={categoryList}
         setCategoryList={setCategoryList}
+        cart={cart}
+        setCart={setCart}
+        total={total}
+        setTotal={setTotal}
       />
     </div>
   )

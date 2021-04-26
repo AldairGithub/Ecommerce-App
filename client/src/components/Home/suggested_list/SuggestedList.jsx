@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
+import { Link } from 'react-router-dom'
+
 import './SuggestedList.css'
 
 export default function SuggestedList(props) {
@@ -28,9 +30,11 @@ export default function SuggestedList(props) {
               {list.map(item => (
                 <>
                   <div className='suggested-list-item'>
-                    <div className='suggested-list-img-container'>
-                      <img className='suggested-list-img' src={ item.img_url} alt={`${item.name} by ${item.user}`}/>
-                    </div>
+                    <Link to={`/item/${item.name}/${item.id}`}>
+                      <div className='suggested-list-img-container'>
+                        <img className='suggested-list-img' src={ item.img_url} alt={`${item.name} by ${item.user}`}/>
+                      </div>
+                    </Link>
 
                     <div className='suggested-list-text'>
                       <div className='suggested-list-price'>

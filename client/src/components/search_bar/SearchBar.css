@@ -63,9 +63,8 @@
 }
 .sb-dropdown-element:hover {
   background-color: gray;
-  color: white;
+  color: #FFF;
 }
-
 .sb-submit-button {
   width: 50px !important;
   padding: 12px;

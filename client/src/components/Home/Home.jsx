@@ -57,7 +57,7 @@ export default function Home(props) {
         filterItemsByCategory('Style')
       )
       setTable(
-        filterItemsByCategory('Table')
+        filterItemsByCategory('Tables')
       )
       setItemsLoaded(false)
     }
@@ -104,20 +104,6 @@ export default function Home(props) {
             </div>
           </>
         }
-
-
-        {/* old list of items */}
-        {/* <div className='home-container'>
-          {items.map((item, index) => (
-          <div className='item-container' key={index} >
-            <Link to={`/items/${item.id}/categories`}>
-              <img src={item.img_url} alt={item.name}/>
-              <p>{item.name}</p>
-              <h1>{item.price}$</h1>
-            </Link>
-          </div>
-          ))}
-        </div> */}
 
       </div>
     </>

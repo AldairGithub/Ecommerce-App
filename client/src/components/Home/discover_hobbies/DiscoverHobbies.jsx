@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
+
 import './DiscoverHobbies.css'
 
 export default function DiscoverHobbies(props) {
@@ -29,31 +31,35 @@ export default function DiscoverHobbies(props) {
               <>
                 {id === 0 || id === 3 ?
                   <>
-                    <div className='dh-container'>
-                      <div className='dh-lg-img'>
-                        <img className='discover-hobbies-img' src={ item.img_url}/>
-                      </div>
-                      <div className='dh-lg-img-name'>
-                        <p>{ item.name }</p>
-                      </div>
-                      <div className='dh-lg-price'>
-                        <p>${ item.price }</p>
-                      </div>
-                    </div>
+                    <Link to={`/item/${item.name}/${item.id}`}>
+                      <div className='dh-container'>
+                        <div className='dh-lg-img'>
+                          <img className='discover-hobbies-img' src={ item.img_url}/>
+                        </div>
+                        <div className='dh-lg-img-name'>
+                          <p>{ item.name }</p>
+                        </div>
+                        <div className='dh-lg-price'>
+                          <p>${ item.price }</p>
+                        </div>
+                      </div>                      
+                    </Link>
                   </>
                   :
                   <>
-                    <div className='dh-container dh-sm-container'>
-                      <div className='dh-sm-img'>
-                        <img className='discover-hobbies-img' src={ item.img_url }/>
+                    <Link to={`/item/${item.name}/${item.id}`}>
+                      <div className='dh-container dh-sm-container'>
+                        <div className='dh-sm-img'>
+                          <img className='discover-hobbies-img' src={ item.img_url }/>
+                        </div>
+                        <div className='dh-name'>
+                          <p>{ item.name }</p>
+                        </div>
+                        <div className='dh-price'>
+                          <label>${ item.price }</label>
+                        </div>
                       </div>
-                      <div className='dh-name'>
-                        <p>{ item.name }</p>
-                      </div>
-                      <div className='dh-price'>
-                        <p>${ item.price }</p>
-                      </div>
-                    </div>
+                    </Link>
                   </>
                 }
               </>

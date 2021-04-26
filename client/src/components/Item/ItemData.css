@@ -1,23 +1,68 @@
 .item-data-container {
-  height: 300px;
   margin-top: 40px;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	flex-wrap: nowrap;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
 }
-
-.item-data-container img{
-  height: 300px;
-  width: 100;
+.item-data-img-container {
+  /* height: auto; */
+  /* width: 100%;
+  max-width: 500px;
+  max-height: 500px; */
+  position: relative;
+  /* border:1px solid gray; */
+  margin-right: 45px;
 }
-.item-data-container h3, h4, h1{
+.item-data-img {
+  /* position: absolute; */
+  /* left: 0; 
+  width: 0px;
+  height: 0px; */
+  object-fit: contain;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+}
+/* .item-data-container h3, h4, h1{
   margin-bottom: -12px;
+} */
+.itemdata-column {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 9px;
+  text-align: left;
+  width: 500px;
 }
-
-.button-cart {
-  margin-top: 20px;
+.itemdata-categories-row {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+.itemdata-categories-container {
+  padding: 6px 25px;
+  background-color: #FFF;
+  border: 1px solid gray;
+  border-radius: 15px;
+  font-weight: 300;
+  color: black;
+  cursor: pointer;
+}
+.itemdata-button button{
+  padding: 9px;
+  min-width: 100%;
+  max-width: 100%;
+  background-color: #1CAC78;
+  color: white;
+  border: 1px solid gray;
+  border-radius: 15px;
+  transition: background-color 0.3s ease-in-out;
+}
+.itemdata-button button:hover {
+  background-color: #00693E;
 }
 
 @media only screen and (max-width: 768px) {
