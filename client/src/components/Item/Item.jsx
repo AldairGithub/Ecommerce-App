@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { readOneItem } from '../../services/items'
+import Footer from '../footer/Footer'
 
 import ItemData from './ItemData'
 
@@ -8,8 +9,10 @@ export default function Item(props) {
   const { id } = props.match.params
 
   const [item, setItem] = useState({})
+  const [itemLoaded, setItemLoaded] = useState(true)
 
   useEffect(() => {
+    setItemLoaded(true)
     if (id !== null) {
       getItem(id)
     } 
@@ -18,14 +21,26 @@ export default function Item(props) {
 
   const getItem = async (id) => {
     const itemData = await readOneItem(id)
+    if (itemData) {
+      setItemLoaded(false)
+    }
     setItem(itemData)
   }
 
   return (
     <>
-      {id &&
+      {itemLoaded ?
         <>
-          <ItemData currentUser={currentUser} item={item} cart={cart} setCart={setCart}/>
+          <div className='loader'></div>
+        </>
+        :
+        <>
+          {id &&
+            <>
+              <ItemData currentUser={currentUser} item={item} cart={cart} setCart={setCart}/>
+            </>
+          }
+          <Footer />
         </>
       }
     </>

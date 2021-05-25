@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 
 import DisplayCard from './display_card/DisplayCard'
 import ShowCategories from './show_categories/ShowCategories'
+import Footer from '../footer/Footer'
 
 import { readAllItems } from '../../services/items'
 import { readOneItem } from '../../services/items'
@@ -48,7 +49,7 @@ export default function Display(props) {
     <>
       {resultsLoaded ?
         <>
-          <div className='display-loader'></div>
+          <div className='loader'></div>
         </>
         :
         <>
@@ -95,6 +96,7 @@ export default function Display(props) {
                   }
                 </div>
               </div>
+              <Footer />
             </>
           }
         </>

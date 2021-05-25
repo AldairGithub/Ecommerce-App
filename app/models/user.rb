@@ -2,7 +2,6 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :items, dependent: :destroy
-  has_one :cart
   
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
