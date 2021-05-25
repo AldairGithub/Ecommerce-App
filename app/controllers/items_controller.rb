@@ -55,6 +55,12 @@ class ItemsController < ApplicationController
     render json: @item, include: :categories
   end 
 
+  # GET /items/:supplier_id/supplier_items
+  def supplier_items
+    @supplier_items = Item.where(user_id: params[:supplier_id])
+    render json: @supplier_items
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item

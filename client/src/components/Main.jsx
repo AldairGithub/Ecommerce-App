@@ -93,7 +93,6 @@ export default function Main(props) {
       <Route path='/item/:item_name/:id' render={(props) => (
         <Item
           {...props}
-          item={item}
           cart={cart}
           setCart={setCart}
           currentUser={currentUser}

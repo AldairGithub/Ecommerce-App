@@ -1,0 +1,49 @@
+.supplier-title {
+  padding: 9px;
+  text-align: left;
+}
+.supplier-title h1 {
+  margin-left: 25px;
+}
+.supplier-container{
+  display: flex;
+  flex-flow: row nowrap;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.supplier-item-container {
+  padding: 12px;
+  box-sizing: border-box;
+  flex-flow: column;
+  text-align: left;
+  width: 300px;
+  margin: 0 auto;
+  height: auto;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+.supplier-item-container:hover {
+  background-color: rgb(230, 230, 230);
+}
+.supplier-img-container {
+  margin: 0 auto;
+  max-width: 250px;
+  height: 250px;
+}
+.supplier-img {
+  width: 100%;
+  height: 100%;
+}
+.supplier-name {
+  margin-top: 15px;
+  font-weight: 300;
+  color: black;
+}
+.supplier-price {
+  margin-top: 5px;
+  font-size: 25px;
+  font-weight: 500;
+  color: black;
+}
