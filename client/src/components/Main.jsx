@@ -96,6 +96,7 @@ export default function Main(props) {
           item={item}
           cart={cart}
           setCart={setCart}
+          currentUser={currentUser}
         />
       )} />
 

@@ -4,7 +4,7 @@ import { readOneItem } from '../../services/items'
 import ItemData from './ItemData'
 
 export default function Item(props) {
-  const { cart, setCart } = props
+  const { cart, setCart, currentUser } = props
   const { id } = props.match.params
 
   const [item, setItem] = useState({})
@@ -25,7 +25,7 @@ export default function Item(props) {
     <>
       {id &&
         <>
-          <ItemData item={item} cart={cart} setCart={setCart}/>
+          <ItemData currentUser={currentUser} item={item} cart={cart} setCart={setCart}/>
         </>
       }
     </>

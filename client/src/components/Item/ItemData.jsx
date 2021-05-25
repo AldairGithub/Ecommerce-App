@@ -7,15 +7,19 @@ import { Link } from 'react-router-dom'
 import './ItemData.css'
 
 export default function ItemData(props) {
-  const {item, cart, setCart} = props
+  const {item, cart, setCart, currentUser} = props
 
   const handleClick = (arr) => {
     // adds items to an array for Cart
-    props.setCart(prevArray => [
+    setCart(prevArray => [
       ...prevArray,
       arr
     ])
+    
+    const newStr = JSON.stringify(arr)
+    localStorage.setItem(`${arr.name}`, `${newStr}`)
   }
+
   return (
     <>
       <div className='item-data-container'>
@@ -40,6 +44,7 @@ export default function ItemData(props) {
           <h1>${item.price}</h1>
 
           <div className='itemdata-button'>
+            {/* <button onClick={() => handleClick(item)}>Add to Cart</button> */}
             <button onClick={() => handleClick(item)}>Add to Cart</button>
           </div>
         </div>

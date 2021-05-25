@@ -28,6 +28,8 @@ export default function Header(props) {
 
   const [showSearchBody, setShowSearchBody] = useState(false)
 
+  const [onCart, setOnCart] = useState()
+
   const handleDropdown = () => {
     setShowDropdown(!showDropdown)
   }
@@ -114,7 +116,9 @@ export default function Header(props) {
               <Link to={`/users/${currentUser.id}/cart`}>
                 <div className='dropdown'>
                   <FontAwesomeIcon icon={faShoppingCart} size='2x' />
-                  <label style={{fontWeight: '500'}}>{ cart.length}</label>
+                  <div className='cart-number-container'>
+                    <label className='cart-number'>{ cart.length }</label>
+                  </div>
                 </div>
               </Link>
 
