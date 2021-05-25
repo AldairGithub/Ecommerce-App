@@ -25,7 +25,16 @@ export default function ItemData(props) {
       <div className='item-data-container'>
         <div className='item-data-img-container'>
           {/* <img className='item-data-img' src={item.img_url} alt={item.name} /> */}
-          <InnerImageZoom className='item-data-img' width={500} height={ 500 } hasSpacer={true} src={item.img_url} zoomSrc={item.img_url} zoomScale='0.4' alt={ item.name }/>
+          <InnerImageZoom
+            className='item-data-img'
+            width={500}
+            height={500}
+            hasSpacer={true}
+            src={item.img_url}
+            zoomSrc={item.img_url}
+            zoomScale='0.4'
+            alt={item.name}
+          />
         </div>
 
         <div className='itemdata-column'>
@@ -35,7 +44,7 @@ export default function ItemData(props) {
             {item.categories && item.categories.map((str, index) => (
               <Link to={`/search/${str.name}`}>
                 <div className='itemdata-categories-container' key={index}>
-                  <label>{str.name}</label>
+                  <label style={{cursor: 'pointer'}}>{str.name}</label>
                 </div>
               </Link>
             ))}
