@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import './Home.css'
-import { Link } from 'react-router-dom'
 import SuggestedList from './suggested_list/SuggestedList'
 import DiscoverHobbies from './discover_hobbies/DiscoverHobbies'
 import DiscoverStyles from './discover_styles/DiscoverStyles'

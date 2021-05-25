@@ -29,3 +29,8 @@ export const destroyItem = async (id) => {
   const response = await api.delete(`/items/${id}`)
   return response
 }
+
+export const getSupplierItems = async (supplier_id) => {
+  const response = await api.get(`/items/${supplier_id}/supplier_items`)
+  return response.data
+}

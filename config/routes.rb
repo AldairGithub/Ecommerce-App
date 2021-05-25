@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users
   put '/categories/:category_id/item/:id', to: 'items#add_category'
   get '/items/:id/categories', to: 'items#item_categories'
+  get '/items/:supplier_id/supplier_items', to: 'items#supplier_items'
   post '/auth/login', to: 'authentication#login'
   get '/auth/verify', to: 'authentication#verify'
 
