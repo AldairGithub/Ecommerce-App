@@ -1,0 +1,32 @@
+.dc-container {
+  width: 115vh;
+  height: 100%;
+  margin: 0 auto;
+  background-color: #CAEBF2;
+  box-shadow: 0 4px 20px rgb(34 34 34 / 15%);
+  padding: 15px;
+}
+.dc-title {
+  margin: 22px 0px;
+}
+.dc-display {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto;
+  padding: 15px;
+  justify-content: space-between;
+}
+.dc-name-container {
+  width: 30vh;
+  margin: 12px;
+  background-color: #FFF;
+  padding: 12px;
+  border-radius: 12px;
+  transition: background-color 0.5s ease-in-out;
+  transition: color 0.1s ease-in-out;
+  color: black;
+}
+.dc-name-container:hover {
+  background-color: #A9A9A9;
+  color: #FFF;
+}

@@ -4,12 +4,17 @@ import { readOneItem } from '../../services/items'
 import ItemData from './ItemData'
 
 export default function Item(props) {
-  let [item, setItem] = useState({})
+  const { cart, setCart, currentUser } = props
+  const { id } = props.match.params
+
+  const [item, setItem] = useState({})
 
   useEffect(() => {
-    getItem(props.match.params.id)
+    if (id !== null) {
+      getItem(id)
+    } 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [id])
 
   const getItem = async (id) => {
     const itemData = await readOneItem(id)
@@ -18,7 +23,11 @@ export default function Item(props) {
 
   return (
     <>
-      <ItemData item={item} cart={props.cart} setCart={props.setCart}/>
+      {id &&
+        <>
+          <ItemData currentUser={currentUser} item={item} cart={cart} setCart={setCart}/>
+        </>
+      }
     </>
   )
 }

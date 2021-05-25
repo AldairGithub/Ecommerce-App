@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = process.env.NODE_ENV === 'production' ? 'https://git.heroku.com/ecommerce-app-ac.git' : 'http://localhost:3000'
+const baseUrl = process.env.NODE_ENV === 'production' ? 'https://ecommerce-app-ac.herokuapp.com/' : 'http://localhost:3000'
 
 
 const api = axios.create({

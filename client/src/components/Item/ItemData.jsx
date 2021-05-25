@@ -1,28 +1,54 @@
 import React from 'react'
+import InnerImageZoom from 'react-inner-image-zoom'
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
+
+import { Link } from 'react-router-dom'
+
 import './ItemData.css'
 
 export default function ItemData(props) {
+  const {item, cart, setCart, currentUser} = props
 
-  const handleClick = (item) => {
+  const handleClick = (arr) => {
     // adds items to an array for Cart
-    props.setCart(prevArray => [
+    setCart(prevArray => [
       ...prevArray,
-      item
+      arr
     ])
+    
+    const newStr = JSON.stringify(arr)
+    localStorage.setItem(`${arr.name}`, `${newStr}`)
   }
+
   return (
-    <div className='item-data-container'>
-      <img src={props.item.img_url} alt={props.item.name}/>
-      <h3>{props.item.name}</h3>
-      {props.item.categories && props.item.categories.map((str, index) => (
-        <div key={index}>
-          <h4>{str.name}</h4>
+    <>
+      <div className='item-data-container'>
+        <div className='item-data-img-container'>
+          {/* <img className='item-data-img' src={item.img_url} alt={item.name} /> */}
+          <InnerImageZoom className='item-data-img' width={500} height={ 500 } hasSpacer={true} src={item.img_url} zoomSrc={item.img_url} zoomScale='0.4' alt={ item.name }/>
         </div>
-      ))}
-      <h1>${props.item.price}</h1>
-      <div className='button button-cart'>
-        <button onClick={() => handleClick(props.item)}>Add to Cart</button>
+
+        <div className='itemdata-column'>
+          <h1>{item.name}</h1>
+
+          <div className='itemdata-categories-row'>
+            {item.categories && item.categories.map((str, index) => (
+              <Link to={`/search/${str.name}`}>
+                <div className='itemdata-categories-container' key={index}>
+                  <label>{str.name}</label>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <h1>${item.price}</h1>
+
+          <div className='itemdata-button'>
+            {/* <button onClick={() => handleClick(item)}>Add to Cart</button> */}
+            <button onClick={() => handleClick(item)}>Add to Cart</button>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
