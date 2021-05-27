@@ -1,3 +1,4 @@
+import { faNewspaper } from '@fortawesome/free-solid-svg-icons'
 import api from './api-helper'
 
 export const readAllItems = async () => {
@@ -32,5 +33,9 @@ export const destroyItem = async (id) => {
 
 export const getSupplierItems = async (supplier_id) => {
   const response = await api.get(`/items/${supplier_id}/supplier_items`)
+  return response.data
+}
+export const getCategoryItems = async (category_id) => {
+  const response = await api.get(`/items/${category_id}/categories_items`)
   return response.data
 }

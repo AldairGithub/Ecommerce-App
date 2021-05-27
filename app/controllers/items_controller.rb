@@ -61,6 +61,13 @@ class ItemsController < ApplicationController
     render json: @supplier_items
   end
 
+  # GET /items/:category_id/categories_items
+  # returns items based on category
+  def categories_items
+    @items = Item.includes(:categories).where(categories: { id: params[:category_id]})
+    render json: @items
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item

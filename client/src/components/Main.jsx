@@ -19,7 +19,8 @@ export default function Main(props) {
   const {
     currentUser,
     setCurrentUser,
-    items, setItems,
+    items,
+    setItems,
     categories,
     itemList,
     setItemList,
@@ -30,8 +31,6 @@ export default function Main(props) {
     total,
     setTotal
   } = props
-
-  const [item] = useState({})
 
   const [users, setUsers] = useState([])
 
@@ -93,6 +92,7 @@ export default function Main(props) {
       <Route path='/item/:item_name/:id' render={(props) => (
         <Item
           {...props}
+          items={items}
           cart={cart}
           setCart={setCart}
           currentUser={currentUser}
