@@ -1,15 +1,18 @@
 .supplier-title {
-  padding: 9px;
+  /* padding: 9px; */
+  margin-top: 12px;
   text-align: left;
 }
 .supplier-title h1 {
-  margin-left: 25px;
+  padding-left: 25px;
+  font-weight: 400;
 }
 .supplier-container{
   display: flex;
   flex-flow: row nowrap;
   width: 80vw;
   margin: 0 auto;
+  justify-content: center;
 }
 
 .supplier-item-container {
@@ -21,12 +24,11 @@
   height: auto;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-
+  transition: all 0.2s ease-in-out;
 }
-
 .supplier-item-container:hover {
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(250, 250, 250);
+  transform: scale(1.1);
 }
 .supplier-img-container {
   margin: 0 auto;
@@ -36,6 +38,7 @@
 .supplier-img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 .supplier-name {
   margin-top: 15px;

@@ -40,16 +40,6 @@ export default function ItemData(props) {
         <div className='itemdata-column'>
           <h1>{item.name}</h1>
 
-          <div className='itemdata-categories-row'>
-            {item.categories && item.categories.map((str, index) => (
-              <Link to={`/search/${str.name}`}>
-                <div className='itemdata-categories-container' key={index}>
-                  <label style={{cursor: 'pointer'}}>{str.name}</label>
-                </div>
-              </Link>
-            ))}
-          </div>
-
           <h1>${item.price}</h1>
 
           <div className='itemdata-button'>
