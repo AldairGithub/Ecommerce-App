@@ -36,21 +36,10 @@
   text-align: left;
   width: 500px;
 }
-.itemdata-categories-row {
-  width: 100%;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
+.itemdata-column h1 {
+  font-weight: 400;
 }
-.itemdata-categories-container {
-  padding: 6px 25px;
-  background-color: #FFF;
-  border: 1px solid gray;
-  border-radius: 15px;
-  font-weight: 300;
-  color: black;
-  cursor: pointer;
-}
+
 .itemdata-button button{
   padding: 9px;
   min-width: 100%;
@@ -59,10 +48,11 @@
   color: white;
   border: 1px solid gray;
   border-radius: 15px;
-  transition: background-color 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .itemdata-button button:hover {
-  background-color: #00693E;
+  transform: scale(1.1);
+  /* background-color: #00693E; */
 }
 
 @media only screen and (max-width: 768px) {
