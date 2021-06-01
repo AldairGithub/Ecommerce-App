@@ -1,11 +1,9 @@
-a {
+/* a {
   text-decoration: none;
 }
-
 .header {
   font-size: 10px;
 }
-
 .sign-in-input {
   width: 200px;
   margin: auto;
@@ -15,7 +13,6 @@ a {
 	justify-content: center;
   align-items: center;
 }
-
 .sign-in-input form {
   margin-top: 20px;
 }
@@ -41,5 +38,75 @@ a {
 .button button:hover {
   background-color: white;
   color: rgb(45, 136, 217);
+} */
+.sign-container {
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  background: rgb(255,59,63);
+  background: linear-gradient(180deg, rgba(255,59,63,1) 0%, rgba(255,255,255,1) 150%);
+  border-radius: 25px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.sign-column-container {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 200px;
+  padding: 9px;
+  justify-content: space-around;
+}
+.sign-row-container {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.sign-input {
+  position: relative;
+  border-radius: 20px;
+  border: none;
+  background-color: rgba(255,255,255, 0.6);
+  font-size: 17px;
+  padding: 10px 0px 10px 40px;
+}
+.sign-input:focus {
+  outline: none;
+}
+.sign-input::placeholder {
+  color: black;
+}
+.sign-icon {
+  position: absolute;
+  z-index: 1;
+  margin-left: 15px;
+  margin-top: 10px;
+  color: black;
+}
+.sign-button-container {
+  margin-top: 15px;
+}
+.sign-button {
+  padding: 11px 15px;
+  width: 225px;
+  background: rgb(255,59,63);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 17px;
+}
+.sign-icon-button {
+  transition: all 0.3s ease-in-out;
+  color: transparent;
+}
+.sign-button:hover .sign-icon-button{
+  color: #fff;
+  margin-left: 10px;
+}
+.sign-alternate-text {
+  margin-top: 15px;
+  text-transform: capitalize;
 }
 
