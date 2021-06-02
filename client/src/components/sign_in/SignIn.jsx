@@ -33,7 +33,7 @@ export default function Login(props) {
     <>
       <div className='sign-container'>
         <div>
-          <h1 style={{color: 'white'}}>Welcome back!</h1>
+          <h1 className='sign-title'>Welcome back!</h1>
         </div>
         <form className='sign-column-container' onSubmit={handleSubmit}>
           <div className='sign-row-container'>
@@ -74,7 +74,7 @@ export default function Login(props) {
           <p>Don't have an account?</p>
         </div>
         
-        <div className='button sign-up-button'>
+        <div>
           <Link to='/register'>
             <button className='sign-button'>
               Sign Up

@@ -40,8 +40,9 @@
   color: rgb(45, 136, 217);
 } */
 .sign-container {
+  padding: 5%;
   width: 500px;
-  height: 500px;
+  height: auto;
   margin: 0 auto;
   background: rgb(255,59,63);
   background: linear-gradient(180deg, rgba(255,59,63,1) 0%, rgba(255,255,255,1) 150%);
@@ -50,6 +51,10 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+}
+.sign-title{
+  color: white;
+  text-transform: uppercase;
 }
 .sign-column-container {
   display: flex;
@@ -61,6 +66,7 @@
 .sign-row-container {
   display: flex;
   flex-flow: row nowrap;
+  padding: 10px 0px;
 }
 .sign-input {
   position: relative;
@@ -106,6 +112,7 @@
   margin-left: 10px;
 }
 .sign-alternate-text {
+  padding: 9px;
   margin-top: 15px;
   text-transform: capitalize;
 }

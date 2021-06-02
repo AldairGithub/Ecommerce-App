@@ -78,7 +78,7 @@ export default function Header(props) {
             <div className='user-nav button'>
               <div className='dropdown'>
                 <div onClick={handleDropdown}>
-                  <FontAwesomeIcon style={{marginRight: '3px'}} icon={faUserCog} size='3x' />
+                  <FontAwesomeIcon style={{marginRight: '3px'}} icon={faUserCog} size='2x' />
                   <FontAwesomeIcon style={{color: 'gray'}} icon={faCaretDown} size='2x'/>
                 </div>
 
