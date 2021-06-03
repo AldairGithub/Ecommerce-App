@@ -11,6 +11,7 @@ import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
 import { faSignInAlt } from '@fortawesome/free-solid-svg-icons'
 
 export default function Register(props) {
+  const {setCurrentUser} = props
   const [newUserData, setNewUserData] = useState({
     username: "",
     password: "",
@@ -28,9 +29,13 @@ export default function Register(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const userData = await registerUser(newUserData)
-    props.setCurrentUser(userData)
-    props.history.push('/')
+    try {
+      const userData = await registerUser(newUserData)
+      setCurrentUser(userData)
+      props.history.push('/')
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
