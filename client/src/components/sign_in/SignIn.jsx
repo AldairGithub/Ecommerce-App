@@ -51,10 +51,9 @@ export default function Login(props) {
         setCurrentUser(userData)
         props.history.push('/')
       } catch (error) {
-        console.log(error.response)
-        if (error.message.substring(error.message.length - 3) === '401') {
+        if (error.response.data.errors === 'unauthorized') {
           setErrorPassword(true)
-          setErrorPasswordMsg('Incorrect password')
+          setErrorPasswordMsg('Incorrect password, minimum 6 characters')
         }
         if (error.message.substring(error.message.length - 3) === '500') {
           setErrorUsername(true)
