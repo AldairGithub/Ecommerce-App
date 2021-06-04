@@ -51,6 +51,7 @@ export default function Login(props) {
         setCurrentUser(userData)
         props.history.push('/')
       } catch (error) {
+        console.log(error.response)
         if (error.message.substring(error.message.length - 3) === '401') {
           setErrorPassword(true)
           setErrorPasswordMsg('Incorrect password')
@@ -72,7 +73,7 @@ export default function Login(props) {
         <form className='sign-column-container' onSubmit={handleSubmit}>
           <div className='sign-display-container'>
             <div className='sign-row-container'>
-              <FontAwesomeIcon className='sign-icon' icon={faUser} size='1x'/>
+              <FontAwesomeIcon id='sign-icon' icon={faUser} size='1x'/>
               <input
                 className='sign-input'
                 placeholder="Username"
@@ -95,7 +96,7 @@ export default function Login(props) {
 
           <div className='sign-display-container'>
             <div className='sign-row-container'>
-              <FontAwesomeIcon className='sign-icon' icon={faLock} size='1x'/>
+              <FontAwesomeIcon id='sign-icon' icon={faLock} size='1x'/>
               <input
                 className='sign-input'
                 placeholder="Password"
