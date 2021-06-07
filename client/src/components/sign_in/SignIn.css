@@ -101,6 +101,12 @@
   z-index: 1;
   color: black;
 }
+#sign-error-fixed-icon {
+  position: absolute;
+  color: green;
+  right: 17px;
+  top: 16px;
+}
 .sign-error-row-container {
   display: flex;
   flex-flow: row nowrap;

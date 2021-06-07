@@ -42,6 +42,14 @@ export default function Main(props) {
     const userList = await readAllUsers()
     setUsers(userList)
   }
+  const checkIfUserExists = (str) => {
+    const list = users.filter((user) => user.username === str)
+    if (list.length >= 1) {
+      return true
+    } else {
+      return false
+    }
+  }
 
   return (
     <main>
@@ -49,6 +57,7 @@ export default function Main(props) {
         <Login
           {...props}
           setCurrentUser={setCurrentUser}
+          checkIfUserExists={checkIfUserExists}
         />
       )} />
 

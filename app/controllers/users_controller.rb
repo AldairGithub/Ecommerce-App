@@ -4,8 +4,10 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-
-    render json: @users
+    @data = @users.map do |k, v|
+      k.attributes.except("password_digest", "created_at", "updated_at", "address", "email")
+    end
+    render json: @data
   end
 
   # GET /users/1
