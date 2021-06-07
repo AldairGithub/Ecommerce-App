@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import './SignUp.css'
 import { registerUser } from '../../services/auth'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,11 +9,13 @@ import {
   faAt,
   faArrowAltCircleRight,
   faSignInAlt,
-  faExclamationTriangle
+  faExclamationTriangle,
+  faCheckCircle,
+  faTimesCircle
 } from '@fortawesome/free-solid-svg-icons'
 
 export default function Register(props) {
-  const {setCurrentUser} = props
+  const {setCurrentUser, checkIfUserExists} = props
   const [newUserData, setNewUserData] = useState({
     username: "",
     password: "",
@@ -27,6 +28,7 @@ export default function Register(props) {
     error: false,
     message: ""
   })
+  const [usernamePasses, setUsernamePasses] = useState(false)
   const [errorPassword, setErrorPassword] = useState({
     error: false,
     message: ""
@@ -35,6 +37,7 @@ export default function Register(props) {
     error: false,
     message: ""
   })
+  const [emailPasses, setEmailPasses] = useState(false)
   
 
   const handleChange = (e) => {
@@ -43,6 +46,27 @@ export default function Register(props) {
       ...newUserData,
       [name]: value
     })
+
+    if (name === 'username') {
+      if (checkIfUserExists(value, name)) {
+        setUsernamePasses(false)
+      } else {
+        setUsernamePasses(true)
+        setErrorUsername(false)
+      }
+    } else if (name === 'email') {
+      let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if (re.test(value)) {
+        if (checkIfUserExists(value, name)) {
+          setEmailPasses(false)
+        } else {
+          setEmailPasses(true)
+          setErrorEmail(false)
+        }
+      } else {
+        setEmailPasses(false)
+      }
+    }
   }
 
 
@@ -120,6 +144,7 @@ export default function Register(props) {
       <div className='sign-container'>
         <div style={{paddingBottom: '42px'}}>
           <h1 className='sign-title'>Create an Account!</h1>
+          <label style={{color: '#fff'}}>*required</label>
         </div>
         <form className='sign-column-container' onSubmit={handleSubmit}>
 
@@ -132,8 +157,20 @@ export default function Register(props) {
                 name='username'
                 value={newUserData.username}
                 onChange={handleChange}
-                placeholder='Username'
+                placeholder='*Username'
               />
+              {newUserData.username.length > 1 ?
+                usernamePasses ?
+                  <>
+                    <FontAwesomeIcon id='sign-error-fixed-icon' icon={faCheckCircle} size='1x'/>
+                  </>
+                  :
+                  <>
+                    <FontAwesomeIcon id='sign-error-fixed-icon' style={{color: 'red'}} icon={faTimesCircle} size='1x'/>
+                  </>
+                : null
+              }
+
             </div>
             {errorUsername.error &&
               <>
@@ -154,8 +191,21 @@ export default function Register(props) {
                 name='password'
                 value={newUserData.password}
                 onChange={handleChange}
-                placeholder='Password'
+                placeholder='*Password'
+                maxLength={6}
               />
+              {newUserData.password.length > 1 ?
+                newUserData.password === newUserData.retype_password ?
+                <>
+                  <FontAwesomeIcon id='sign-error-fixed-icon' icon={faCheckCircle} size='1x'/>                  
+                </>
+                :
+                <>
+                  <FontAwesomeIcon id='sign-error-fixed-icon' style={{color: 'red'}} icon={faTimesCircle} size='1x'/>
+                </>
+                :
+                null
+              }
             </div>
             {errorPassword.error &&
               <>
@@ -176,8 +226,21 @@ export default function Register(props) {
                 name='retype_password'
                 value={newUserData.retype_password}
                 onChange={handleChange}
-                placeholder='Re-type Password'
+                placeholder='*Re-type Password'
+                maxLength={6}
               />
+              {newUserData.retype_password.length > 1 ?
+                newUserData.password === newUserData.retype_password ?
+                  <>
+                    <FontAwesomeIcon id='sign-error-fixed-icon' icon={faCheckCircle} size='1x'/>                  
+                  </>
+                  :
+                  <>
+                    <FontAwesomeIcon id='sign-error-fixed-icon' style={{color: 'red'}} icon={faTimesCircle} size='1x'/>
+                  </>
+                :
+                null
+              }
             </div>
             {errorPassword.error &&
               <>
@@ -212,8 +275,20 @@ export default function Register(props) {
                 name='email'
                 value={newUserData.email}
                 onChange={handleChange}
-                placeholder='Email'
+                placeholder='*Email'
               />
+              {newUserData.email.length > 1 ?
+                emailPasses ?
+                  <>
+                    <FontAwesomeIcon id='sign-error-fixed-icon' icon={faCheckCircle} size='1x'/>                  
+                  </>
+                  :
+                  <>
+                    <FontAwesomeIcon id='sign-error-fixed-icon' style={{color: 'red'}} icon={faTimesCircle} size='1x'/>
+                  </>
+                :
+                null
+              }
             </div>
             {errorEmail.error &&
               <>
@@ -251,43 +326,5 @@ export default function Register(props) {
         </div>
       </div>
     </>
-    // <div className='button sign-up-container'>
-    // <form onSubmit={handleSubmit}>
-    //   <h3>CREATE AN ACCOUNT</h3>
-    //   <input
-    //     type='text'
-    //     name='username'
-    //     value={newUserData.username}
-    //     onChange={handleChange}
-    //     placeholder='Username'
-    //   />
-    //   <input
-    //     type='password'
-    //     name='password'
-    //     value={newUserData.password}
-    //     onChange={handleChange}
-    //     placeholder='Password'
-    //   />
-    //   <input
-    //     type='text'
-    //     name='address'
-    //     value={newUserData.address}
-    //     onChange={handleChange}
-    //     placeholder='Address'
-    //   />
-    //   <input
-    //     type='text'
-    //     name='email'
-    //     value={newUserData.email}
-    //     onChange={handleChange}
-    //     placeholder='Email'
-    //   />
-    //   <button>Submit</button>
-    //   </form>
-    //   <p>Already have an account?</p>
-    //   <div className='button'>
-    //     <Link to='/'><button>Sign In</button></Link>
-    //   </div>
-    // </div>
   )
 }

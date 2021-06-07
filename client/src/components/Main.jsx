@@ -42,13 +42,23 @@ export default function Main(props) {
     const userList = await readAllUsers()
     setUsers(userList)
   }
-  const checkIfUserExists = (str) => {
-    const list = users.filter((user) => user.username === str)
-    if (list.length >= 1) {
-      return true
-    } else {
-      return false
+  const checkIfUserExists = (str, attr) => {
+    if (attr === 'username') {
+      const list = users.filter((user) => user.username === str)
+      if (list.length >= 1) {
+        return true
+      } else {
+        return false
+      }
+    } else if (attr === 'email') {
+      const list = users.filter((user) => user.email === str)
+      if (list.length >= 1) {
+        return true
+      } else {
+        return false
+      }
     }
+
   }
 
   return (
@@ -65,6 +75,7 @@ export default function Main(props) {
         <Register
           {...props}
           setCurrentUser={setCurrentUser}
+          checkIfUserExists={checkIfUserExists}
         />
       )} />
 
