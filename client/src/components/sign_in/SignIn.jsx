@@ -3,14 +3,17 @@ import './SignIn.css'
 import { Link } from 'react-router-dom'
 import { loginUser } from '../../services/auth'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
-import { faLock } from '@fortawesome/free-solid-svg-icons'
-import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
-import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
-import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
+import {
+  faUser,
+  faLock,
+  faArrowAltCircleRight,
+  faUserPlus,
+  faExclamationTriangle,
+  faCheckCircle
+} from '@fortawesome/free-solid-svg-icons'
 
 export default function Login(props) {
-  const { setCurrentUser } = props
+  const { setCurrentUser, checkIfUserExists } = props
 
   const [newUserData, setNewUserData] = useState({
     username: "",
@@ -20,6 +23,7 @@ export default function Login(props) {
   const [errorUsernameMsg, setErrorUsernameMsg] = useState('')
   const [errorPassword, setErrorPassword] = useState(false)
   const [errorPasswordMsg, setErrorPasswordMsg] = useState('')
+  const [errorFixed, setErrorFixed] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -27,6 +31,15 @@ export default function Login(props) {
       ...newUserData,
       [name]: value
     })
+
+    if (name === 'username') {
+      if (checkIfUserExists(value)) {
+        setErrorFixed(true)
+      } else {
+        setErrorFixed(false)
+      }
+    }
+
   }
   const checkForEmptyInputs = () => {
     if (newUserData.password.length === 0) {
@@ -81,6 +94,11 @@ export default function Login(props) {
                 value={setNewUserData.username}
                 onChange={handleChange}
               />
+              {errorFixed &&
+                <>
+                  <FontAwesomeIcon id='sign-error-fixed-icon' icon={ faCheckCircle} size='1x'/>
+                </>
+              }
             </div>
             {errorUsername &&
               <>
@@ -105,6 +123,11 @@ export default function Login(props) {
                 value={setNewUserData.password}
                 onChange={handleChange}
               />
+              {newUserData.password.length === 6 &&
+                <>
+                  <FontAwesomeIcon id='sign-error-fixed-icon' icon={ faCheckCircle } size='1x'/>
+                </>
+              }
             </div>
             {errorPassword &&
               <>
