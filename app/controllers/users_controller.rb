@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @data = @users.map do |k, v|
-      k.attributes.except("password_digest", "created_at", "updated_at", "address", "email")
+      k.attributes.except("password_digest", "created_at", "updated_at", "address")
     end
     render json: @data
   end

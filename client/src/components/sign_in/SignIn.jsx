@@ -33,7 +33,7 @@ export default function Login(props) {
     })
 
     if (name === 'username') {
-      if (checkIfUserExists(value)) {
+      if (checkIfUserExists(value, name)) {
         setErrorFixed(true)
       } else {
         setErrorFixed(false)
@@ -64,10 +64,16 @@ export default function Login(props) {
         setCurrentUser(userData)
         props.history.push('/')
       } catch (error) {
-        if (error.response.data.errors === 'unauthorized') {
-          setErrorPassword(true)
-          setErrorPasswordMsg('Incorrect password, minimum 6 characters')
+        if (error.response) {
+          if (error.response.data.errors === 'unauthorized') {
+            setErrorPassword(true)
+            setErrorPasswordMsg('Incorrect password, minimum 6 characters')
+          }
+        } else {
+          setErrorUsername(true)
+          setErrorUsernameMsg(error.message)
         }
+
         if (error.message.substring(error.message.length - 3) === '500') {
           setErrorUsername(true)
           setErrorUsernameMsg('Incorrect username. User not found')
