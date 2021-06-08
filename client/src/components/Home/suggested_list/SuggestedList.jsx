@@ -11,18 +11,16 @@ export default function SuggestedList(props) {
 
   useEffect(() => {
     if (items !== null) {
-      const filteredOnlyFurniture = items.filter((i, j) => j <= 7 && i.categories.length === 1)
+      const filteredOnlyFurniture = items.filter((i, j) => i.categories.length === 1)
       setList(filteredOnlyFurniture)
     }
   }, [items])
   
   return (
     <>
-      {/* container */}
       <div className='suggested-list-container'>
-        {/* title */}
         <div className='suggested-list-title'>
-          <h1>Things you might love</h1>
+          <p>Things you might love</p>
         </div>
 
         <div className='suggested-list-items'>

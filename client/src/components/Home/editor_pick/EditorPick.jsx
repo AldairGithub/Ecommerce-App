@@ -15,12 +15,13 @@ export default function EditorPick(props) {
       setList(items)
     }
   }, [items])
+
   return (
     <>
       <div className='ep-container'>
         <div className='ep-display'>
-          <div className='ep-text-container'>
-            <h4>Our Pick of the Day</h4>
+          <div className='ep-title-container'>
+            <label className='ep-title'>Our Pick of the Day</label>
             <div className='ep-text-seemore'>
               <p>See more</p>
               <FontAwesomeIcon className='ep-text-icon' icon={ faAngleRight } size='1x'/>
@@ -28,7 +29,7 @@ export default function EditorPick(props) {
           </div>
           {list.map((item, id) => (
             <>
-              <Link to={`/item/${item.name}/${item.id}`}>
+              <Link className='ep-item-container' to={`/item/${item.name}/${item.id}`}>
                 <div className='ep-img-container' key={id}>
                   <img className='ep-img' src={item.img_url} alt={item.name} />
                   <div className='ep-img-text'>
