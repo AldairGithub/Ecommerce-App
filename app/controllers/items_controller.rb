@@ -65,7 +65,7 @@ class ItemsController < ApplicationController
   # returns items based on category
   def categories_items
     @items = Item.includes(:categories).where(categories: { id: params[:category_id]})
-    render json: @items
+    render json: @items, include: :categories
   end
 
   private

@@ -6,6 +6,9 @@ import DiscoverStyles from './discover_styles/DiscoverStyles'
 import EditorPick from './editor_pick/EditorPick'
 import DiscoverCategories from './discover_categories/DiscoverCategories'
 import Footer from '../footer/Footer'
+import { getCategoryItems } from '../../services/items'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
  
 export default function Home(props) {
   const { items, categories } = props
@@ -14,71 +17,52 @@ export default function Home(props) {
   const [music, setMusic] = useState(null)
   const [style, setStyle] = useState(null)
   const [table, setTable] = useState(null)
-  const [itemsLoaded, setItemsLoaded] = useState(true)
+  const [itemsLoaded, setItemsLoaded] = useState(false)
+
+  const [error, setError] = useState({
+    state: false,
+    message: ""
+  })
 
   useEffect(() => {
-    setItemsLoaded(true)
+    setItemsLoaded(false)
     setCategories()
-    // try {
-    //   items && setTimeout(() => setItemsLoaded(false), 2000)
-    // } catch(err) {
-    //   console.log(err)
-    // }
-    // if (items !== null) {
-    //   setFurniture(
-    //     filterItemsByCategory('Furniture')
-    //   )
-    //   setMusic(
-    //     filterItemsByCategory('Music')
-    //   )
-    //   setStyle(
-    //     filterItemsByCategory('Style')
-    //   )
-    //   setTable(
-    //     filterItemsByCategory('Table')
-    //   )
-      // setTimeout(() => {
-      //   setItemsLoaded(false)
-      // }, 2000)
-      // setItemsLoaded(false)
-    // }
-  }, [items])
+  }, [])
 
-  const setCategories = () => {
-    if (items !== null) {
-      setFurniture(
-        filterItemsByCategory('Furniture')
-      )
-      setMusic(
-        filterItemsByCategory('Music')
-      )
-      setStyle(
-        filterItemsByCategory('Style')
-      )
-      setTable(
-        filterItemsByCategory('Tables')
-      )
-      setItemsLoaded(false)
+  const setCategories = async () => {
+    // since this is the standard home component, we can call items based on the id of the category we want to display.
+    // Later we can add a randomizer or change the items displayed based on what the user typically searches
+    try {
+      const styleData = await getCategoryItems(3)
+      setStyle(filterByNumberDesired(styleData, 5))
+      const furnitureData = await getCategoryItems(7)
+      setFurniture(filterByNumberDesired(furnitureData, 6))
+      const musicData = await getCategoryItems(1)
+      setMusic(filterByNumberDesired(musicData, 5))
+      const tablesData = await getCategoryItems(8)
+      setTable(filterByNumberDesired(tablesData, 6))
+      // renders page once all items are present, since async/await is asyncronous
+      if (styleData, furnitureData, musicData, tablesData) {
+        setItemsLoaded(true)
+      }
+    } catch (err) {
+      console.log(err)
+      setError({
+        state: true,
+        message: err.message
+      })
     }
   }
 
-  const filterItemsByCategory = (category) => {
-    const filter = items.filter(item => {
-      return item.categories.find(i => {
-        return i.name === category
-      })
-    })
-    return filter
+  const filterByNumberDesired = (arr, num) => {
+    const list = arr.filter((ele, index) => index <= num)
+    return list
   }
 
   return (
     <>
       <div>
         {itemsLoaded ?
-          <>
-            <div className='loader'></div>
-          </>
-          :
           <>
             <div className='components-container'>
               <div className='components-separate'>
@@ -101,6 +85,18 @@ export default function Home(props) {
             <div className='components-separate'>
               <Footer />
             </div>
+          </>
+          :
+          <>
+            <div className='loader'></div>
+            {error.state &&
+              <>
+                <div className='home-error-container'>
+                  <FontAwesomeIcon style={{ paddingRight: '9px'}} icon={ faExclamationTriangle} size='1x'/>
+                  <label>{error.message}. Please try again later</label>
+                </div>
+              </>
+            }
           </>
         }
 
