@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
  
 export default function Home(props) {
-  const { items, categories } = props
+  const { categories } = props
 
   const [furniture, setFurniture] = useState(null)
   const [music, setMusic] = useState(null)
@@ -78,7 +78,7 @@ export default function Home(props) {
                 <EditorPick items={ table }/>
               </div>
               <div className='components-separate'>
-                <DiscoverCategories categories={ categories }/>
+                <DiscoverCategories categories={ filterByNumberDesired(categories, 8) }/>
               </div>
             </div>
 

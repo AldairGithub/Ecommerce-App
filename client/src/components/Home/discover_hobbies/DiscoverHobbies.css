@@ -50,14 +50,26 @@
     opacity: 1;
   }
 }
-
+.discover-hobbies-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-content: center;
+  padding: 25px;
+}
+.discover-hobbies-title-container {
+  padding: 45px;
+}
+.discover-hobbies-title {
+  font-size: 55px;
+  font-weight: 300;
+}
 .discover-hobbies-items-container {
   display: flex;
   justify-content: space-evenly;
   padding: 9px;
   flex-flow: row nowrap;
   width: 100%;
-  /* margin: 0 auto; */
 }
 .dh-lg-img {
   width: 294px;

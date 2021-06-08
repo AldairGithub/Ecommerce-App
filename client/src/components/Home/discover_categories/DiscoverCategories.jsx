@@ -10,30 +10,22 @@ export default function DiscoverCategories(props) {
   const [list, setList] = useState(null)
   
   useEffect(() => {
-    getList()
-    // setList(
-    //   categories.filter((i, j) => j <= 8)
-    // )
+    setList(categories)
   }, [categories])
 
-  const getList = () => {
-    if (categories !== null) {
-      setList(
-        categories.filter((i, j) => j <= 8)
-      )
-    }
-  }
   
   return (
     <>
       <div className='dc-container'>
-        <h4 className='dc-title'>Find new categories</h4>
+        <div className='dc-title-container'>
+          <label className='dc-title'>Find new categories</label>
+        </div>
         {list !== null &&
           <>
           <div className='dc-display'>
             {list.map(id => (
               <>
-                <Link to={ `/search/${id.name}` }>
+                <Link className='dc-item-container' to={ `/search/${id.name}` }>
                   <div className='dc-name-container'>
                     <label className='dc-name'>{ id.name }</label>
                   </div>

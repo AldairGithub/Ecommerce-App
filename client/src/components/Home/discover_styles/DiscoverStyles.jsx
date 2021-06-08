@@ -18,9 +18,8 @@ export default function DiscoverStyles(props) {
 
   useEffect(() => {
     if (items !== null) {
-      setList(
-        items.filter((i, j) => j <= 5)
-      )
+      // items are already filtered by number desired on home component
+      setList(items)
       setLeftItem(items.filter((i, j) => j === 0))
       setRightItem(items.filter((i, j) => j === 1))
     }
@@ -89,7 +88,7 @@ export default function DiscoverStyles(props) {
           </>
           }
         <div className='ds-title-container'>
-          <h4 className='ds-title-text'>Discover new styles everyday!</h4>
+          <label className='ds-title-text'>Discover new styles everyday!</label>
         </div>
         {rightItem !== null &&
           <>

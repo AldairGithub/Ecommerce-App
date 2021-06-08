@@ -5,9 +5,14 @@
   background-color: #CAEBF2;
   box-shadow: 0 4px 20px rgb(34 34 34 / 15%);
   padding: 15px;
+  border-radius: 15px;
+}
+.dc-title-container {
+  padding: 25px;
 }
 .dc-title {
-  margin: 22px 0px;
+  font-weight: 300;
+  font-size: 35px; 
 }
 .dc-display {
   display: flex;
@@ -16,17 +21,22 @@
   padding: 15px;
   justify-content: space-between;
 }
+.dc-item-container {
+  color: black;
+  text-decoration: none;
+}
 .dc-name-container {
   width: 30vh;
   margin: 12px;
   background-color: #FFF;
   padding: 12px;
   border-radius: 12px;
-  transition: background-color 0.5s ease-in-out;
-  transition: color 0.1s ease-in-out;
+  transition: all 0.4s ease-in-out;
   color: black;
+  opacity: 0.8;
 }
 .dc-name-container:hover {
   background-color: #A9A9A9;
   color: #FFF;
+  opacity: 1;
 }

@@ -90,12 +90,7 @@ export default function Main(props) {
       <Route exact path='/' render={(props) => (
         <Home
           {...props}
-          items={items}
           categories={categories}
-          itemList={itemList}
-          setItemList={setItemList}
-          categoryList={categoryList}
-          setCategoryList={setCategoryList}
         />
       )} />
 

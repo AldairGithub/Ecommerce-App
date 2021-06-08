@@ -40,7 +40,7 @@
   padding: 2%;
   width: 500px;
   height: auto;
-  margin: 0 auto;
+  margin: 0 auto; 
   background: rgb(255,59,63);
   background: linear-gradient(180deg, rgba(140,169,211,1) 0%, rgba(255,255,255,1) 150%);
   border-radius: 25px;
