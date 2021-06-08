@@ -4,7 +4,7 @@ import Header from './components/header/Header'
 import Main from './components/Main'
 import { verifyUser } from './services/auth'
 import { readAllItems } from './services/items'
-import { readOneItem } from './services/items'
+// import { readOneItem } from './services/items'
 import { readAllCategories } from './services/categories'
 
 export default function App() {
@@ -24,15 +24,19 @@ export default function App() {
 
   const getItems = async () => {
     const itemList = await readAllItems()
+    // setting them in state as just items without getting categories will hopefully lower load on database,
+    setItems(itemList)
 
-    const getCategory = async (id) => {
-      const item = await readOneItem(id)
-      return item
-    }
-    const items = await Promise.all(itemList.map(async (item) => 
-      getCategory(item.id)
-    ))
-    setItems(items)
+    // This call would get get categories from each item, but it would make a call for each item. Slowing down process.
+    // This is here in case of future use
+    // const getCategory = async (id) => {
+    //   const item = await readOneItem(id)
+    //   return item
+    // }
+    // const items = await Promise.all(itemList.map(async (item) => 
+    //   getCategory(item.id)
+    // ))
+    // setItems(items)
   }
 
   const getCategories = async () => {

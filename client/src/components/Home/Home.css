@@ -27,6 +27,14 @@
 .components-separate {
   margin-top: 55px;
 }
+.home-error-container {
+  padding-top: 22px;
+  display:flex;
+  flex-flow: row nowrap;
+  color: rgba(255,0,0);
+  width: auto;
+  justify-content: center;
+}
 @media only screen and (max-width: 768px) {
   .home-container img{
     height: 100px;
