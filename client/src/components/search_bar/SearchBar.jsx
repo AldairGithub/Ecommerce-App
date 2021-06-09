@@ -88,7 +88,7 @@ export default function SearchBar(props) {
                         </div>
                         {categoryList.map(str => (
                           <>
-                            <Link to={`/search/${str.name}`}>
+                            <Link style={{textDecoration: 'none'}} to={`/search/${str.name}`}>
                               <div className='sb-dropdown-element'>
                                 <p>{ str.name }</p>
                               </div>
@@ -104,7 +104,7 @@ export default function SearchBar(props) {
                       </div>
                       {itemList.map(str => (
                         <>
-                          <Link to={`/item/${str.name}/${str.id}`}>
+                          <Link style={{ textDecoration: 'none'}} to={`/item/${str.name}/${str.id}`}>
                             <div className='sb-dropdown-element'>
                               <p>{ str.name }</p>
                             </div>

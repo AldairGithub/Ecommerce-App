@@ -1,5 +1,5 @@
 
-.update-container {
+/* .update-container {
   width: 210px;
   margin-top: 20px;
   margin: auto;
@@ -34,4 +34,63 @@
   margin-bottom: 1px;
   font-size: 15px;
 }
-
+ */
+.update-user-container {
+  border-radius: 9px;
+  width: 400px;
+  height: auto;
+  padding: 25px;
+  box-shadow: 0 2px 18px rgb(34 34 34 / 20%);
+  margin: 0 auto;
+}
+.update-user-form-container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.update-user-title-container {
+  padding: 12px;
+}
+.update-user-title {
+  font-size: 35px;
+  font-weight: 300;
+}
+.update-user-input-container {
+  padding: 15px;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.update-user-label-container {
+  width: 180px;
+  margin: auto 0;
+}
+.update-user-label {
+  padding: 15px;
+}
+.update-user-input {
+  font-family: FontAwesome, 'Arial';
+  /* border-radius: 15px; */
+  border-style: none none solid;
+  padding: 9px;
+  margin-bottom: 9px;
+}
+.update-user-input:focus {
+  outline: none;
+}
+.update-user-button-container {
+  padding: 15px;
+  width: calc(100% - 25%);
+}
+.update-user-button {
+  padding: 9px;
+  width: 100%;
+  background-color: #FF3B3F;
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+  transition: all 0.5s ease-in-out;
+}
+.update-user-button:hover {
+  transform: scale(1.1);
+}

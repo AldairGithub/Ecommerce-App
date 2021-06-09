@@ -12,7 +12,7 @@ export default function CategoryItems(props) {
       <div className='category-items-container'>
         {items.map((item, index) => (
           <>
-            <Link to={`/item/${item.name}/${item.id}`}>
+            <Link style={{textDecoration: 'none'}} to={`/item/${item.name}/${item.id}`}>
               <div className='category-items'>
                 <div key={index} className='category-items-img-container'>
                   <img src={item.img_url} className='category-items-img' />
