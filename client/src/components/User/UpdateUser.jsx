@@ -50,46 +50,83 @@ export default function UpdateUser(props) {
   }
 
   return (
-    <div className='update-container'>
-    <form onSubmit={handleSubmit}>
-      <h3>UPDATE ACCOUNT</h3>
-      <input
-        type='text'
-        name='username'
-        value={userData.username}
-        onChange={handleChange}
-        placeholder='Username'
-      />
-      <input
-        type='text'
-        name='email'
-        value={userData.email}
-        onChange={handleChange}
-        placeholder='Email'
-      />
-      <input
-        type='text'
-        name='address'
-        value={userData.address}
-        onChange={handleChange}
-        placeholder='Address'
-      />
-      <input
-        type='text'
-        name='password'
-        value={userData.password}
-        onChange={handleChange}
-        placeholder='Old Password'
-      />
-      <input
-        type='password'
-        name='password'
-        value={userData.password}
-        onChange={handleChange}
-        placeholder='New Password'
-        />
-        <div>
-          <button className='button'>Submit</button>
+    <div className='update-user-container'>
+      <form className='update-user-form-container' onSubmit={handleSubmit}>
+        <div className='update-user-title-container'>
+          <label className='update-user-title'>UPDATE ACCOUNT</label>
+        </div>
+        <div className='update-user-input-container'>
+          <div className='update-user-label-container'>
+            <label className='update-user-label'>Username: </label>
+          </div>
+          <input
+            className='update-user-input'
+            type='text'
+            name='username'
+            value={userData.username}
+            onChange={handleChange}
+            placeholder='&#xf007; Username'
+          />
+        </div>
+
+        <div className='update-user-input-container'>
+          <div className='update-user-label-container'>
+            <label className='update-user-label'>Email: </label>
+          </div>
+          <input
+            className='update-user-input'
+            type='text'
+            name='email'
+            value={userData.email}
+            onChange={handleChange}
+            placeholder='&#xf0e0; Email'
+          />
+        </div>
+
+        <div className='update-user-input-container'>
+          <div className='update-user-label-container'>
+            <label className='update-user-label'>Address: </label>
+          </div>
+          <input
+            className='update-user-input'
+            type='text'
+            name='address'
+            value={userData.address}
+            onChange={handleChange}
+            placeholder='&#xf015; Address'
+          />
+        </div>
+
+        <div className='update-user-input-container'>
+          <div className='update-user-label-container'>
+            <label className='update-user-label'>Password: </label>
+          </div>
+          <input
+            className='update-user-input'
+            type='text'
+            name='password'
+            value={userData.password}
+            onChange={handleChange}
+            placeholder='&#xf023; Old Password'
+          />
+        </div>
+
+        <div className='update-user-input-container'>
+          <div className='update-user-label-container'>
+            <label className='update-user-label'>New Password: </label>
+          </div>
+          <input
+            className='update-user-input'
+            type='password'
+            name='password'
+            value={userData.password}
+            onChange={handleChange}
+            placeholder='&#xf023; New Password'
+          />
+        </div>
+
+        <div className='update-user-button-container'>
+          <button className='update-user-button'>Submit</button>
         </div>
       </form>
     </div>

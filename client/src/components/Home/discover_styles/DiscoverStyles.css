@@ -64,7 +64,6 @@
   100% {opacity: 1;}
 }
 .ds-container {
-
   background-color: #FF3B3F;
   display: flex;
   flex-flow: row nowrap;
@@ -75,7 +74,7 @@
   width: 200px;
   height: 200px;
   padding: 0px 12px;
-  animation: fadeIn ease 1.5s;
+  animation: fadeIn ease 1s;
   transition: all 0.5s ease-in-out;
 }
 .ds-img {

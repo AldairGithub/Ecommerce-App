@@ -58,7 +58,7 @@ export default function Header(props) {
       {currentUser !== null ? (
           <div className='header' onClick={closeSearchBar}>
             <div className='home' onClick={closeDropdown}>
-              <Link to='/'>
+              <Link style={{textDecoration: 'none'}} to='/'>
                 <h1>Markeet</h1>
               </Link>
             </div>
@@ -86,7 +86,7 @@ export default function Header(props) {
                 <div className={`${showDropdown && 'show-dropdown'} dropdown-content`}>
 
                   {/* User profile */}
-                  <Link to={`/users/${currentUser.id}/items`}>
+                  <Link style={{textDecoration: 'none'}} to={`/users/${currentUser.id}/items`}>
                     <div className='icon-user-row' onClick={closeDropdown}>
                       <FontAwesomeIcon className='icon-user' color={'gray'} icon={faHouseUser} size='2x' />
                       <div className='text-left icon-user-column'>
@@ -96,7 +96,7 @@ export default function Header(props) {
                   </Link>
 
                   {/* Update User */}
-                  <Link to={`/users/${currentUser.id}`}>
+                  <Link style={{textDecoration: 'none'}} to={`/users/${currentUser.id}`}>
                     <div className='subicon-container-row' onClick={closeDropdown}>
                       <FontAwesomeIcon className='subicon-icon' icon={faUserEdit} size='1x' />
                       <p className='subicon-text'>Update Account</p>
@@ -113,7 +113,7 @@ export default function Header(props) {
                 </div>
               </div>
 
-              <Link to={`/users/${currentUser.id}/cart`}>
+              <Link style={{textDecoration: 'none'}} to={`/users/${currentUser.id}/cart`}>
                 <div className='dropdown'>
                   <FontAwesomeIcon icon={faShoppingCart} size='2x' />
                   <div className='cart-number-container'>
@@ -128,7 +128,7 @@ export default function Header(props) {
             // not signed in user
         <div className='header' onClick={closeSearchBar}>
           <div className='home'>
-            <Link to='/'>
+            <Link style={{textDecoration: 'none'}} to='/'>
               <h1>Markeet</h1>
             </Link>
             </div>
@@ -147,10 +147,10 @@ export default function Header(props) {
             </div>
           <div className='register-buttons'>
             <div className='header-sign-button-container' style={{marginRight: '20px'}}>
-              <Link to={`/register`}><p className='header-sign-text'>Sign Up</p></Link>
+              <Link style={{textDecoration: 'none'}} to={`/register`}><p className='header-sign-text'>Sign Up</p></Link>
             </div>
             <div className='header-sign-button-container'>
-              <Link to={`/signin`}><p className='header-sign-text'>Sign In</p></Link>
+              <Link style={{textDecoration: 'none'}} to={`/signin`}><p className='header-sign-text'>Sign In</p></Link>
             </div>
           </div>
         </div>

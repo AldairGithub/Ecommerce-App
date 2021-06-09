@@ -13,7 +13,7 @@ export default function SupplierItems(props) {
       <div className='supplier-container'>
       {items.map((item, index) => (
         <>
-          <Link to={`/item/${item.name}/${item.id}`}>
+          <Link style={{textDecoration: 'none'}} to={`/item/${item.name}/${item.id}`}>
             <div className='supplier-item-container'>
               <div key={index} className='supplier-img-container'>
                 <img className='supplier-img' src={ item.img_url}/>

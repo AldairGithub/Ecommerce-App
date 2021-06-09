@@ -141,6 +141,7 @@ export default function Register(props) {
 
   return (
     <>
+      <div style={{paddingBottom: '5%'}}>
       <div className='sign-container'>
         <div style={{paddingBottom: '42px'}}>
           <h1 className='sign-title'>Create an Account!</h1>
@@ -323,6 +324,7 @@ export default function Register(props) {
                 </button>
               </div>
           </Link>
+        </div>
         </div>
       </div>
     </>
