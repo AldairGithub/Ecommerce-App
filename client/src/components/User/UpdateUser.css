@@ -72,7 +72,7 @@
   font-family: FontAwesome, 'Arial';
   /* border-radius: 15px; */
   border-style: none none solid;
-  padding: 9px;
+  padding: 9px 0px 5px 9px;
   margin-bottom: 9px;
 }
 .update-user-input:focus {
