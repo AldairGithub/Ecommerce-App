@@ -50,6 +50,10 @@ export default function Register(props) {
     if (name === 'username') {
       if (checkIfUserExists(value, name)) {
         setUsernamePasses(false)
+        setErrorUsername({
+          error: true,
+          message: 'Username already exists'
+        })
       } else {
         setUsernamePasses(true)
         setErrorUsername(false)
@@ -59,6 +63,10 @@ export default function Register(props) {
       if (re.test(value)) {
         if (checkIfUserExists(value, name)) {
           setEmailPasses(false)
+          setErrorEmail({
+            error: true,
+            message: 'Email already exists'
+          })
         } else {
           setEmailPasses(true)
           setErrorEmail(false)
