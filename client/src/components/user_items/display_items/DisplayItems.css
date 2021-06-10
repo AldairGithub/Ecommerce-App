@@ -1,0 +1,16 @@
+.display-items {
+  margin: 0 auto;
+  width: calc(100% - 7%);
+}
+.display-items-container {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+  padding: 12px;
+  
+}
+.display-items-separator {
+  padding: 9px;
+}

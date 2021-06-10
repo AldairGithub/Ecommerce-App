@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   def user_items
     @user = User.find(params[:id])
 
-    render json: @user, include: :items
+    render json: @user.items
   end
 
   private
