@@ -4,7 +4,7 @@ import './DisplayItems.css'
 import DisplayItem from '../display_item/DisplayItem'
 
 export default function DisplayItems(props) {
-  const { id, items } = props
+  const { id, items, getUserItems } = props
   
   return (
     <>
@@ -13,7 +13,7 @@ export default function DisplayItems(props) {
         {items.map(item => (
           <>
             <div className='display-items-separator'>
-              <DisplayItem id={id}  item={ item }/>
+              <DisplayItem id={id} item={item} getUserItems={ getUserItems }/>
             </div>
           </>
         ))}
