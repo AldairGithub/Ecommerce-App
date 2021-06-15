@@ -37,6 +37,7 @@ class ItemsController < ApplicationController
 
   # DELETE /items/1
   def destroy
+    puts @item
     @item.destroy
   end
 

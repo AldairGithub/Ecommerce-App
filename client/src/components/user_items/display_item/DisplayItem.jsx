@@ -10,8 +10,12 @@ import { Link } from 'react-router-dom'
 export default function DisplayItem(props) {
   const { id, item, getUserItems } = props
   
-  const handleDeleteItem = (itemId) => {
-    // await destroyItem(itemId)
+  const handleClick = (itemId) => {
+    handleDeleteItem(itemId)
+  }
+  
+  const handleDeleteItem = async(itemId) => {
+    await destroyItem(itemId)
     // getUserItems()
   }
 
@@ -39,7 +43,7 @@ export default function DisplayItem(props) {
                 </div>
               </Link>
               <div className='display-item-button-container'>
-                <button onClick={handleDeleteItem(item.id)} className='display-item-delete-button'>
+                <button onClick={() => handleClick(item.id)} className='display-item-delete-button'>
                   Delete Item
                   <FontAwesomeIcon className='display-item-icon' icon={faTrashAlt} size='1x'/>
                 </button>
