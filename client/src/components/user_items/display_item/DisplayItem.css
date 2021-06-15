@@ -1,14 +1,52 @@
+@keyframes shake-effect {
+  0% {
+    transform: translateX(0px) rotate(0deg);
+  }
+  20% {
+    transform: translateX(-3px) rotate(-3deg);
+  }
+  40% {
+    transform: translateX(-2px) rotate(-2deg);
+  }
+  60% {
+    transform: translateX(3px) rotate(3deg);
+  }
+  80% {
+    transform: translateX(2px) rotate(2deg);
+  }
+  100% {
+    transform: translateX(0px) rotate(0deg);
+  }
+}
+@-webkit-keyframes shake-effect {
+  0% {
+    transform: translateX(0px) rotate(0deg);
+  }
+  20% {
+    transform: translateX(-3px) rotate(-3deg);
+  }
+  40% {
+    transform: translateX(-2px) rotate(-2deg);
+  }
+  60% {
+    transform: translateX(3px) rotate(3deg);
+  }
+  80% {
+    transform: translateX(2px) rotate(2deg);
+  }
+  100% {
+    transform: translateX(0px) rotate(0deg);
+  }
+}
 .display-item-container {
   box-sizing: border-box;
   padding: 9px;
-  /* border: 1px solid black; */
   max-width: 200px;
   height: auto;
   transition: all 0.3s ease-in-out;
 }
 .display-item-container:hover {
   box-shadow: 0 2px 18px rgb(34 34 34 / 20%);
-  /* background-color: rgba(245,245,245); */
   border-radius: 5px;
 }
 .display-item-img-container {
@@ -25,21 +63,32 @@
   flex-flow: column nowrap;
   text-align: left;
   justify-content: space-around;
-  height: 130px;
+  height: 190px;
+}
+.display-item-text {
+  height: 70px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
 }
 .display-item-info-container {
   display: flex;
   flex-flow: column nowrap;
   height: 50%;
   justify-content: space-around;
+  padding-bottom: 9px 0px;
+}
+.display-item-price-container{
+  padding: 9px 0px;
 }
 .display-item-price {
   font-weight: 600;
 }
 .display-item-button-container {
   text-decoration: none;
+  padding-bottom: 12px;
 }
-.display-item-button {
+.display-item-update-button {
   width: 100%;
   padding: 9px;
   border: none;
@@ -48,13 +97,26 @@
   border-radius: 5px;
   transition: all 0.3s ease-in-out;
 }
+.display-item-delete-button {
+  width: 100%;
+  padding: 9px;
+  border: none;
+  background-color: rgba(255, 46, 77, 1);
+  color: #fff;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
 .display-item-icon {
   margin-left: 5px;
   transition: all 0.3s ease-in-out;
 }
-.display-item-button:hover {
+.display-item-update-button:hover {
   background-color: #00AB66;
 }
-.display-item-button:hover .display-item-icon {
+.display-item-update-button:hover .display-item-icon {
   margin-left: 15px;
+}
+.display-item-delete-button:hover .display-item-icon {
+  margin-left: 15px;
+  animation: shake-effect 0.3s ease-in-out;
 }

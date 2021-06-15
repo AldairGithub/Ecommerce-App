@@ -59,7 +59,7 @@ export default function UserItems(props) {
                 <label>My Business</label>
               </div>
               <div className='user-items-container'>
-                <DisplayItems id={id} items={userItemsData} />
+                <DisplayItems id={id} items={userItemsData} getUserItems={getUserItems}/>
               </div>
             </>
             :
