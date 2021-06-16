@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './CreateItem.css'
-import { postItem } from '../../services/items'
+import { postItem } from '../../../services/items'
 
 export default function CreateItem(props) {
   const [itemData, setItemData] = useState({
@@ -17,25 +17,23 @@ export default function CreateItem(props) {
     })
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    const newItem = await postItem(itemData)
-    props.setItems([
-      ...props.items,
-      newItem
-    ])
-    props.history.push(`/users/${props.match.params.id}/items`)
-  }
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault()
+  //   const newItem = await postItem(itemData)
+  //   props.setItems([
+  //     ...props.items,
+  //     newItem
+  //   ])
+  //   props.history.push(`/users/${props.match.params.id}/items`)
+  // }
 
 
   return (
     <>
-      <div>
-        <h2>My Business</h2>
-      </div>
-      <h3>Create Item</h3>
+
       <div className='create-item-container'>
-    <form onSubmit={handleSubmit}>
+    {/* <form onSubmit={handleSubmit}> */}
+      <form>
       <input
         type='text'
         name='name'

@@ -24,7 +24,6 @@ export default function ItemData(props) {
     <>
       <div className='item-data-container'>
         <div className='item-data-img-container'>
-          {/* <img className='item-data-img' src={item.img_url} alt={item.name} /> */}
           <InnerImageZoom
             className='item-data-img'
             width={500}
@@ -43,7 +42,6 @@ export default function ItemData(props) {
           <h1>${item.price}</h1>
 
           <div className='itemdata-button'>
-            {/* <button onClick={() => handleClick(item)}>Add to Cart</button> */}
             <button onClick={() => handleClick(item)}>Add to Cart</button>
           </div>
         </div>
