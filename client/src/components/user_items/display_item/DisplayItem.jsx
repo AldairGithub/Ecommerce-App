@@ -15,8 +15,17 @@ export default function DisplayItem(props) {
   }
   
   const handleDeleteItem = async(itemId) => {
-    await destroyItem(itemId)
+    // await destroyItem(itemId)
     // getUserItems()
+    try {
+      await destroyItem(itemId)
+        .then(res => {
+        getUserItems()
+      })
+    } catch (err) {
+      console.log(err)
+    }
+
   }
 
   return (
