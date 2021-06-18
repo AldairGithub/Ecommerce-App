@@ -8,7 +8,7 @@ import UpdateUser from './user/UpdateUser'
 import Home from './home/Home'
 import Item from './item/Item'
 import UserItems from './user_items/UserItems'
-import CreateItem from './create_item/CreateItem'
+import CreateItem from './user_items/create_item/CreateItem'
 import UpdateItem from './update_item/UpdateItem'
 import Cart from './cart/Cart'
 import Checkout from './checkout/Checkout'
@@ -58,7 +58,17 @@ export default function Main(props) {
         return false
       }
     }
+  }
 
+  const addToCart = (arr) => {
+    // adds items to an array for Cart
+    setCart(prevArray => [
+      ...prevArray,
+      arr
+    ])
+
+    const newStr = JSON.stringify(arr)
+    localStorage.setItem(`${arr.name}`, `${newStr}`)
   }
 
   return (
@@ -118,9 +128,7 @@ export default function Main(props) {
         <UserItems
           {...props}
           currentUser={currentUser}
-          items={items}
-          setItems={setItems}
-          categories={categories}
+          addToCart={addToCart}
         />
       )} />
 

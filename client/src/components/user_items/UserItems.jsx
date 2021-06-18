@@ -1,38 +1,28 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { userItems } from '../../services/users'
+import { readUser } from '../../services/users'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import './UserItems.css'
 import DisplayItems from '../user_items/display_items/DisplayItems'
 
-import DisplayCategory from '../category/DisplayCategory'
-import AddCategory from '../category/AddCategory'
-import DeleteItem from '../delete_item/DeleteItem'
+import CreateItem from './create_item/CreateItem'
 
 export default function UserItems(props) {
-  const { currentUser, items, categories } = props
+  const { currentUser, addToCart } = props
   const { id } = props.match.params
   
-  const [currentUserOnPage, setCurrentUserOnPage] = useState(false)
+  const [userPage, setUserPage] = useState(null)
   const [userItemsData, setUserItemsData] = useState([])
   const [itemsLoaded, setItemsLoaded] = useState(false)
+  const [addItemComponent, setAddItemComponent] = useState(false)
 
   useEffect(() => {
-    setCurrentUserOnPage(false)
-    getUserItems()
-    isCurrentUserOnPage()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentUser])
 
-  const isCurrentUserOnPage = () => {
-    let id = parseInt(props.match.params.id)
-    if (currentUser !== null) {
-      if (currentUser.id === id) {
-        setCurrentUserOnPage(true)
-      } else {
-        setCurrentUserOnPage(false)
-      }
-    }
-  }
+    getUserItems()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
 
   const getUserItems = async () => {
     setItemsLoaded(false)
@@ -40,31 +30,68 @@ export default function UserItems(props) {
 
     try {
       const itemListFromUser = await userItems(id)
+      // 
+      const user = await readUser(id)
+      setUserPage(user)
       setUserItemsData(itemListFromUser)
-      if (itemListFromUser) {
+      if (itemListFromUser && user) {
         setItemsLoaded(true)
       }
     } catch (err) {
       console.log(err)
     }
   }
+  const isItCurrentUserPage = () => {
+    if (currentUser !== null) {
+      if (userPage.id === currentUser.id) {
+        return true
+      } else {
+        return false
+      }
+    }
+  }
+  const addItem = () => {
+    if (isItCurrentUserPage()) {
+      setAddItemComponent(!addItemComponent)
+    } 
+  }
 
   return (
     <>
       {itemsLoaded ?
         <>
-          {currentUserOnPage ?
+          <div className='user-items-title-container'>
+            <label className='user-items-title'>{userPage.username}</label>
+            {isItCurrentUserPage() &&
+              <>
+                <div onClick={() => addItem()} className='user-items-button-container'>
+                  <button className='user-items-button'>
+                    Add New Item
+                    <FontAwesomeIcon
+                      className='user-items-add-icon'
+                      icon={faPlus}
+                      size='1x'
+                    />
+                  </button>
+                </div>
+              </>
+            }
+          </div>
+          {addItemComponent ?
             <>
-              <div>
-                <label>My Business</label>
-              </div>
-              <div className='user-items-container'>
-                <DisplayItems id={id} items={userItemsData} getUserItems={getUserItems}/>
-              </div>
+              <CreateItem />
             </>
             :
             <>
-              <p>not currentUser</p>
+              <div className='user-items-container'>
+                <DisplayItems
+                  id={id}
+                  items={userItemsData}
+                  getUserItems={getUserItems}
+                  isItCurrentUserPage={isItCurrentUserPage}
+                  addToCart={addToCart}
+                />
+              </div>
             </>
           }
         </>

@@ -3,20 +3,20 @@ import './DisplayItem.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 import { destroyItem } from '../../../services/items'
 
 import { Link } from 'react-router-dom'
 
 export default function DisplayItem(props) {
-  const { id, item, getUserItems } = props
+  const { id, item, getUserItems, isItCurrentUserPage, addToCart } = props
   
   const handleClick = (itemId) => {
     handleDeleteItem(itemId)
   }
   
   const handleDeleteItem = async(itemId) => {
-    // await destroyItem(itemId)
-    // getUserItems()
+
     try {
       await destroyItem(itemId)
         .then(res => {
@@ -43,20 +43,35 @@ export default function DisplayItem(props) {
               <div className='display-item-price-container'>
                 <label className='display-item-price'>$ { item.price }</label>
               </div>
-              <Link to={`/users/${id}/item/${item.id}/edit`}>
-                <div className='display-item-button-container'>
-                  <button className='display-item-update-button'>
-                    Update Item
-                    <FontAwesomeIcon className='display-item-icon' icon={ faArrowRight } size='1x'/>
-                  </button>
-                </div>
-              </Link>
-              <div className='display-item-button-container'>
-                <button onClick={() => handleClick(item.id)} className='display-item-delete-button'>
-                  Delete Item
-                  <FontAwesomeIcon className='display-item-icon' icon={faTrashAlt} size='1x'/>
-                </button>
-              </div>
+              {isItCurrentUserPage() ?
+                <>
+                  <Link to={`/users/${id}/item/${item.id}/edit`}>
+                    <div className='display-item-button-container'>
+                      <button className='display-item-update-button'>
+                        Update Item
+                        <FontAwesomeIcon className='display-item-icon' icon={ faArrowRight } size='1x'/>
+                      </button>
+                    </div>
+                  </Link>
+                  <div className='display-item-button-container'>
+                    <button onClick={() => handleClick(item.id)} className='display-item-delete-button'>
+                      Delete Item
+                      <FontAwesomeIcon className='display-item-icon' icon={faTrashAlt} size='1x'/>
+                    </button>
+                  </div>
+                </>
+                :
+                <>
+                  {/* addToCart is used temporally */}
+                  <div onClick={() => addToCart(item)} className='display-item-button-container'>
+                    <button className='display-item-cart-button'>
+                      Add to Cart
+                       <FontAwesomeIcon className='display-item-cart-icon' icon={ faCartPlus } size='1x'/>
+                      </button>
+                  </div>
+                </>
+              }
+
             </div>
 
           </div>
